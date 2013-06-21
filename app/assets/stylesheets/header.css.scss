@@ -1,0 +1,29 @@
+$header_border_size: 7px;
+.header {
+	margin: 10px 0;
+	position: relative;
+	height: 110px;
+	.header-top, .header-bottom, .header-content {
+		position: absolute;
+		left: 0;
+	  right: 0;
+	}
+	.header-top{
+		background: linear-gradient(#990000, white);
+	  height: $header_border_size;
+	  top: 0;
+	}
+	.header-content {
+		top: $header_border_size;
+		bottom: -$header_border_size;
+		.container {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+	}
+	.header-bottom{
+    background: linear-gradient(white, #990000);
+		height: $header_border_size;
+		bottom: 0;
+	}
+}
