@@ -1,0 +1,22 @@
+.home-text {
+	margin-top: 15%;
+	.hero-unit {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		&:hover {
+			background-color: darken(#eeeeee, 20%);
+		}
+		h3 {
+			display: block;
+			a {
+				display: block;
+				padding: 60px;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+}
