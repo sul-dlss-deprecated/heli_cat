@@ -1,17 +1,19 @@
 <div class="row home-text">
-  <div class="span4">
+  <div class="<%= home_span_class %>">
     <div class="hero-unit">
       <h3><%= link_to "Inventory", inventory_index_path %></h3>
     </div>
   </div>
-  <div class="span4">
+  <div class="<%= home_span_class %>">
     <div class="hero-unit">
       <h3><%= link_to "Purchase a new computer", "#" %></h3>
     </div>
   </div>
-  <div class="span4">
-    <div class="hero-unit">
-      <h3><%= link_to "My computers#{' (' +  @my_computers.length.to_s + ')' if @my_computers.length > 0}", "#" %></h3>
+  <%- if current_user and @my_computers.length > 0 -%>
+    <div class="<%= home_span_class %>">
+      <div class="hero-unit">
+        <h3><%= link_to "My computers (#{@my_computers.length})", "#" %></h3>
+      </div>
     </div>
-  </div>
+  <%- end -%>
 </div>
