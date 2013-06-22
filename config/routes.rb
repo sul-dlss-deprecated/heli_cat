@@ -11,6 +11,7 @@ HeliCat::Application.routes.draw do
   get "inventory/model"      => "inventory#index", defaults: {by: "model"}
 
   resources :inventory
+  resources :items
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
