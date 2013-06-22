@@ -5,6 +5,11 @@ HeliCat::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#show'
 
+  get "inventory/location"   => "inventory#index", defaults: {by: "location"}
+  get "inventory/department" => "inventory#index", defaults: {by: "department"}
+  get "inventory/make"       => "inventory#index", defaults: {by: "make"}
+  get "inventory/model"      => "inventory#index", defaults: {by: "model"}
+
   resources :inventory
 
   # Example of regular route:

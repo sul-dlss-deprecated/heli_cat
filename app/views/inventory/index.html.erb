@@ -1,20 +1,19 @@
-<div class="row">
+<div class="row inventory">
   <div class="span3 tabbable tabs-left">
     <ul class="nav nav-tabs">
-      <li<%= active_class(nil) %>>
-        <%= link_to "Location", inventory_index_path(by: nil), :"data-toggle" => "tab" %>
+      <li<%= active_class("location") %>>
+        <%= link_to "Location", inventory_location_path, :"data-toggle" => "tab" %>
       </li>
       <li<%= active_class("department") %>>
-        <%= link_to "Deparment", inventory_index_path(by: "department"), :"data-toggle" => "tab" %>
+        <%= link_to "Deparment", inventory_department_path, :"data-toggle" => "tab" %>
       </li>
       <li<%= active_class("make") %>>
-        <%= link_to "Make", inventory_index_path(by: "make"), :"data-toggle" => "tab" %>
+        <%= link_to "Make", inventory_make_path, :"data-toggle" => "tab" %>
       </li>
       <li<%= active_class("model") %>>
-        <%= link_to "Model", inventory_index_path(by: "model"), :"data-toggle" => "tab" %>
+        <%= link_to "Model", inventory_model_path, :"data-toggle" => "tab" %>
       </li>
     </ul>
-
   </div>
   <div class="span9">
   </div>
