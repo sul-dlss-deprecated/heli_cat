@@ -11,7 +11,7 @@
   </div>
   <div class="span4">
     <div class="hero-unit">
-      <h3><%= link_to "My computers", "#" %></h3>
+      <h3><%= link_to "My computers#{' (' +  @my_computers.length.to_s + ')' if @my_computers.length > 0}", "#" %></h3>
     </div>
   </div>
 </div>
