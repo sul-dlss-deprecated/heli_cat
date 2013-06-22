@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	$("#item_department").typeahead({source: ["DPG", "Lyberteam", "PSM", "Webteam"]})
-	$("#item_make").typeahead({source: ["Dell", "Mac"]});
-	$("#item_swap_cycle").typeahead({source: ["1-year", "2-years", "3-years"]});
+	$("#item_department").prop("autocomplete", "off").typeahead({source: ["DPG", "Lyberteam", "PSM", "Webteam"]})
+	$("#item_make").prop("autocomplete", "off").typeahead({source: ["Dell", "Mac"]});
+	$("#item_swap_cycle").prop("autocomplete", "off").typeahead({source: ["1-year", "2-years", "3-years"]});
 
 	var service_code_parent = $("#item_express_service_code").closest(".control-group");
 	service_code_parent.hide();
