@@ -1,7 +1,7 @@
 <div class="row inventory">
   <div class="span3 tabbable tabs-left">
     <ul class="nav nav-tabs">
-      <li<%= active_class("location") %>>
+      <li<%= active_class("location", default: true) %>>
         <%= link_to "Location", inventory_location_path, :"data-toggle" => "tab" %>
       </li>
       <li<%= active_class("department") %>>
