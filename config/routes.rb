@@ -9,6 +9,9 @@ HeliCat::Application.routes.draw do
   get "inventory/department" => "inventory#index", defaults: {by: "department"}
   get "inventory/make"       => "inventory#index", defaults: {by: "make"}
   get "inventory/model"      => "inventory#index", defaults: {by: "model"}
+  get "user/:user"           => "items#find",     as: "find_user"
+  get "serial/:serial"       => "items#find",     as: "find_serial"
+  get "barcode/:barcode"     => "items#find",     as: "find_barcode"
 
   resources :inventory
   resources :items
