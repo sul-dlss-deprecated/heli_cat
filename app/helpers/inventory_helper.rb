@@ -8,4 +8,14 @@ module InventoryHelper
       return active_string
     end
   end
+
+  def render_inventory_partial
+    if permitted_inventory_partials.include?(params["by"].to_sym)
+      render partial: "inventory/#{params['by']}"
+    end
+  end
+
+  def permitted_inventory_partials
+    [:location, :department]
+  end
 end

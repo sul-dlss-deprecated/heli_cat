@@ -1,0 +1,6 @@
+<%= form_tag("", method: "GET") do %>
+  <div class="input-append">
+    <%= text_field_tag :value, params["value"], :"data-typeahead-options" => @options.map{|option| option.send(column) }.join(",")  %>
+    <%= button_tag "Filter", class: "btn" %>
+  </div>
+<%- end -%>
