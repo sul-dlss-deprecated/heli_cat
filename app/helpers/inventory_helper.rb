@@ -10,6 +10,7 @@ module InventoryHelper
   end
 
   def render_inventory_partial
+    return "" unless params["by"]
     if permitted_inventory_partials.include?(params["by"].to_sym)
       render partial: "inventory/#{params['by']}"
     end
