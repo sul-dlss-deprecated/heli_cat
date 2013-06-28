@@ -5,7 +5,7 @@ class InventoryController < ApplicationController
     value = params["value"]
     @items = []
     @options = Item.select(by).uniq
-    if by and value
+    if by and !value.blank?
       @items = Item.where(by => value)
     elsif by
       @items = Item.order(by)
