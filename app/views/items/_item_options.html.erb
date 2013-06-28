@@ -1,6 +1,7 @@
 <div class="well item_options">
   <ul class="nav nav-list">
     <li class="nav-header">Options:</li>
+    <li <%= active_class("show", param: "action") %>><%= link_to("Show", item_path(@item)) %></li>
     <li <%= active_class("edit", param: "action") %>><%= link_to("Edit", edit_item_path(@item)) %></li>
     <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(@item)) %></li>
     <li class="divider"></li>
