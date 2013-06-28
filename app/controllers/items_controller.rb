@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.create(item_create_params)
+    flash[:notce] = "#{@item.user}'s #{@item.model} was succesfully added!"
+    redirect_to :back
   end
   
   def find
