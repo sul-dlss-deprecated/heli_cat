@@ -19,6 +19,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_update_params)
+      flash[:notice] = "#{@item.user}'s #{@item.model} was succesfully updated!"
+    else
+      flash[:error] = "There was a problem updating #{@item.user}'s #{@item.model}.  Please try again."
+    end
+    redirect_to :back
+  end
+
   def swap
     @item = Item.find(params[:id])
   end
@@ -32,7 +42,14 @@ class ItemsController < ApplicationController
     p
   end
 
+  def item_update_params
+    params.require(:item).permit(permitted_item_params)
+  end
+
   def item_create_params
-    params.require(:item).permit(:user, :department, :location, :make, :model, :barcode, :serial, :computer_name, :ip_address, :wireless_mac, :wired_mac, :swap_cycle, :warranty_start, :notes)
+    params.require(:item).permit(permitted_item_params)
+  end
+  def permitted_item_params
+    [:user, :department, :location, :make, :model, :barcode, :serial, :computer_name, :ip_address, :wireless_mac, :wired_mac, :swap_cycle, :warranty_start, :notes]
   end
 end
