@@ -1,22 +1,29 @@
 <div class="row inventory">
-  <div class="span3 tabbable tabs-left">
-    <ul class="nav nav-tabs">
-      <li<%= active_class("location", default: true) %>>
-        <%= link_to "Location", inventory_location_path, :"data-toggle" => "tab" %>
-      </li>
-      <li<%= active_class("department") %>>
-        <%= link_to "Deparment", inventory_department_path, :"data-toggle" => "tab" %>
-      </li>
-      <li<%= active_class("make") %>>
-        <%= link_to "Make", inventory_make_path, :"data-toggle" => "tab" %>
-      </li>
-      <li<%= active_class("model") %>>
-        <%= link_to "Model", inventory_model_path, :"data-toggle" => "tab" %>
-      </li>
-      <li class="add">
-        <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
-      </li>
-    </ul>
+  <div class="span3">
+    <div class="well inventory_options">
+      <ul class="nav nav-list">
+        <li class="nav-header">Filter by:</li>
+        <li<%= active_class("location", default: true) %>>
+          <%= link_to "Location", inventory_location_path, :"data-toggle" => "tab" %>
+        </li>
+        <li<%= active_class("department") %>>
+          <%= link_to "Deparment", inventory_department_path, :"data-toggle" => "tab" %>
+        </li>
+        <li<%= active_class("make") %>>
+          <%= link_to "Make", inventory_make_path, :"data-toggle" => "tab" %>
+        </li>
+        <li<%= active_class("model") %>>
+          <%= link_to "Model", inventory_model_path, :"data-toggle" => "tab" %>
+        </li>
+        <li class="divider"></li>
+        <li class="add">
+          <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
+        </li>
+        <li class="add">
+          <%= link_to "Add Purchase Option", "#", :"data-toggle" => "tab" %>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="span9">
     <%= render_inventory_partial  %>
