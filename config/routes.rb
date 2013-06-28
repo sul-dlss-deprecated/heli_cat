@@ -12,6 +12,7 @@ HeliCat::Application.routes.draw do
   get "user/:user"           => "items#find",     as: "find_user"
   get "serial/:serial"       => "items#find",     as: "find_serial"
   get "barcode/:barcode"     => "items#find",     as: "find_barcode"
+  get "items/:id/swap"       => "items#swap",     as: "swap_item"
 
   resources :inventory
   resources :items

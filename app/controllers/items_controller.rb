@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def swap
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def item_find_params
