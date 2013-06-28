@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.create(item_create_params)
-    flash[:notce] = "#{@item.user}'s #{@item.model} was succesfully added!"
+    flash[:success] = "#{@item.user}'s #{@item.model} was succesfully added!"
     redirect_to :back
   end
   
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_update_params)
-      flash[:notice] = "#{@item.user}'s #{@item.model} was succesfully updated!"
+      flash[:success] = "#{@item.user}'s #{@item.model} was succesfully updated!"
     else
       flash[:error] = "There was a problem updating #{@item.user}'s #{@item.model}.  Please try again."
     end
