@@ -1,1 +1,2 @@
-<%= render partial: "items/item", collection: @items %>
+<%- items_partial = (@items.length == 1) ? "item" : "brief_item" -%>
+<%= render partial: "items/#{items_partial}", collection: @items %>
