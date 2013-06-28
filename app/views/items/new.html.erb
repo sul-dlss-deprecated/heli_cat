@@ -11,7 +11,7 @@
   </div>
   <div class="span9">
     <%- if params["from"] == "blank" -%>
-      <%= render "new_from_blank" %>
+      <%= render partial: "items/edit", locals: {item: Item.new} %>
     <%- end -%>
   </div>
 </div>

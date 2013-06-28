@@ -1,4 +1,7 @@
-<%= form_for(Item.new, html: {class: "form-horizontal"}) do |f| %>
+<%- if item.user -%>
+  <h3>Editing <%= item.user %>'s <%= item.model %></h3>
+<%- end -%>
+<%= form_for(item, html: {class: "form-horizontal"}) do |f| %>
   <%= render_item_form_fields(f) %>
   <div class="control-group">
     <div class="controls">
