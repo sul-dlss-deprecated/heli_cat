@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
     @items = Item.where(item_find_params)
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def item_find_params

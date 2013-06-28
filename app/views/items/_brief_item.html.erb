@@ -1,4 +1,4 @@
-<h3><%= brief_item_counter + 1 %>. <%= brief_item.user %>'s <%= brief_item.model %></h3>
+<h3><%= brief_item_counter + 1 %>. <%= link_to("#{brief_item.user}'s #{brief_item.model}", item_path(brief_item)) %></h3>
 <dl class="dl-horizontal">
   <dt>Location:</dt>
   <dd><%= brief_item.location %><%= " (#{brief_item.department})" if brief_item.department %></dd>
