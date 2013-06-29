@@ -3,7 +3,7 @@ class User
   def initialize(id)
     @id = id
   end
-  def computers
-    @computers ||= Item.where(:user => @id)
+  def equipment
+    @equipment ||= Item.where(:user => @id)
   end
 end

@@ -9,10 +9,10 @@
       <h3><%= link_to "Purchase a new computer", "#" %></h3>
     </div>
   </div>
-  <%- if current_user and current_user.computers.length > 0 -%>
+  <%- if current_user and current_user.equipment.length > 0 -%>
     <div class="<%= home_span_class %>">
       <div class="hero-unit">
-        <h3><%= link_to "My computers (#{current_user.computers.length})", find_user_path(current_user.id) %></h3>
+        <h3><%= link_to "My equipment (#{current_user.equipment.length})", find_user_path(current_user.id) %></h3>
       </div>
     </div>
   <%- end -%>
