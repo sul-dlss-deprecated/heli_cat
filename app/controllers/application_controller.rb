@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    nil
+    User.new("jdoe")
   end
   helper_method :current_user
 end
