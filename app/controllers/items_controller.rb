@@ -9,10 +9,20 @@ class ItemsController < ApplicationController
   
   def find
     @items = Item.where(item_find_params)
+    respond_to do |format|
+      format.html
+      format.xml  {render xml:  @items.to_xml}
+      format.json {render json: @items.to_json}
+    end
   end
 
   def show
     @item = Item.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.xml  {render xml:  @item.to_xml}
+      format.json {render json: @item.to_json}
+    end
   end
 
   def edit
@@ -39,6 +49,7 @@ class ItemsController < ApplicationController
     p = params.dup
     p.delete(:controller)
     p.delete(:action)
+    p.delete(:format)
     p
   end
 
