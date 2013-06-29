@@ -1,0 +1,13 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <span class="brand">HeliCat</span>
+    <ul class="nav">
+      <li><%= link_to("Home", root_path) %></li>
+      <li><%= link_to("Inventory", inventory_location_path) %></li>
+      <%- if current_user -%>
+        <li><%= link_to "My computers <span class='badge badge-invert'>#{current_user.computers.length}</span>".html_safe, find_user_path(current_user.id) %></li>
+      <%- end -%>
+    </ul>
+  </div>
+</div>
+
