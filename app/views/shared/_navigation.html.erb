@@ -3,9 +3,9 @@
     <span class="brand">HeliCat</span>
     <ul class="nav">
       <li><%= link_to("Home", root_path) %></li>
-      <li><%= link_to("Inventory", inventory_location_path) %></li>
+      <li<%= active_class("inventory", param: "controller") %>><%= link_to("Inventory", inventory_location_path) %></li>
       <%- if current_user and current_user.equipment.length > 0 -%>
-        <li><%= link_to "My equipment <span class='badge badge-invert'>#{current_user.equipment.length}</span>".html_safe, find_user_path(current_user.id) %></li>
+        <li <%= " class='active'".html_safe if params[:action] == "find" and params[:user] %>><%= link_to "My equipment <span class='badge badge-invert'>#{current_user.equipment.length}</span>".html_safe, find_user_path(current_user.id) %></li>
       <%- end -%>
     </ul>
   </div>
