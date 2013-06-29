@@ -1,43 +1,69 @@
 <div class="item">
   <h3><%= item.user %>'s <%= item.model %></h3>
   <dl class="dl-horizontal">
-    <dt>Department:</dt>
-    <dd><%= item.department %></dd>
+    <%- unless item.department -%>
+      <dt>Department:</dt>
+      <dd><%= item.department.blank? %></dd>
+    <%- end -%>
 
-    <dt>Location:</dt>
-    <dd><%= item.location %></dd>
+    <%- unless item.location.blank? -%>
+      <dt>Location:</dt>
+      <dd><%= item.location %></dd>
+    <%- end -%>
 
-    <dt>Make:</dt>
-    <dd><%= item.make %></dd>
+    <%- unless item.make.blank? -%>
+      <dt>Make:</dt>
+      <dd><%= item.make %></dd>
+    <%- end -%>
 
-    <dt>Model:</dt>
-    <dd><%= item.model %></dd>
+    <%- unless item.model.blank? -%>
+      <dt>Model:</dt>
+      <dd><%= item.model %></dd>
+    <%- end -%>
 
-    <dt>Barcode:</dt>
-    <dd><%= item.barcode %></dd>
+    <%- unless item.barcode.blank? -%>
+      <dt>Barcode:</dt>
+      <dd><%= item.barcode %></dd>
+    <%- end -%>
 
-    <dt>Express Service Code:</dt>
-    <dd><%= item.express_service_code %></dd>
+    <%- unless item.express_service_code.blank? -%>
+      <dt>Express Service Code:</dt>
+      <dd><%= item.express_service_code %></dd>
+    <%- end -%>
 
-    <dt>Computer Name:</dt>
-    <dd><%= item.computer_name %></dd>
+    <%- unless item.computer_name.blank? -%>
+      <dt>Computer Name:</dt>
+      <dd><%= item.computer_name %></dd>
+    <%- end -%>
 
-    <dt>IP Address:</dt>
-    <dd><%= item.ip_address %></dd>
+    <%- unless item.ip_address.blank? -%>
+      <dt>IP Address:</dt>
+      <dd><%= item.ip_address %></dd>
+    <%- end -%>
 
-    <dt>Wireless MAC:</dt>
-    <dd><%= item.wireless_mac %></dd>
+    <%- unless item.wireless_mac.blank? -%>
+      <dt>Wireless MAC:</dt>
+      <dd><%= item.wireless_mac %></dd>
+    <%- end -%>
 
-    <dt>Wired MAC:</dt>
-    <dd><%= item.wired_mac %></dd>
+    <%- unless item.wired_mac.blank? -%>
+      <dt>Wired MAC:</dt>
+      <dd><%= item.wired_mac %></dd>
+    <%- end -%>
 
-    <dt>Swap Cycle:</dt>
-    <dd><%= item.swap_cycle %></dd>
+    <%- unless item.swap_cycle.blank? -%>
+      <dt>Swap Cycle:</dt>
+      <dd><%= item.swap_cycle %></dd>
+    <%- end -%>
 
-    <dt>Warranty Start Date:</dt>
-    <dd><%= item.warranty_start %></dd>
+    <%- unless item.warranty_start.blank? -%>
+      <dt>Warranty Start Date:</dt>
+      <dd><%= item.warranty_start %></dd>
+    <%- end -%>
 
-    <dt>Notes:</dt>
-    <dd><%= item.notes %></dd>
+    <%- unless item.notes.blank? -%>
+      <dt>Notes:</dt>
+      <dd><%= item.notes %></dd>
+    <%- end -%>
   </dl>
 </div>
