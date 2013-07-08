@@ -1,17 +1,6 @@
 <div class="row inventory">
-  <div class="span3 tabbable tabs-left">
-    <ul class="nav nav-tabs">
-      <li<%= active_class("template", param: "from", default: true) %>>
-        <%= link_to "Purchase Options", new_item_path(from: "template"), :"data-toggle" => "tab" %>
-      </li>
-      <li<%= active_class("blank", param: "from") %>>
-        <%= link_to "Blank Form", new_item_path(from: "blank"), :"data-toggle" => "tab" %>
-      </li>
-    </ul>
-  </div>
-  <div class="span9">
-    <%- if params["from"] == "blank" -%>
-      <%= render partial: "items/edit", locals: {item: Item.new} %>
-    <%- end -%>
+  <div class="offset3 span9">
+    <h3>Add new item into the Inventory</h3>
+    <%= render partial: "items/edit", locals: {item: Item.new} %>
   </div>
 </div>
