@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130622064536) do
+ActiveRecord::Schema.define(version: 20130708194551) do
 
   create_table "items", force: true do |t|
     t.string   "department"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20130622064536) do
     t.string   "swap_cycle"
     t.date     "warranty_start"
     t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchase_options", force: true do |t|
+    t.string   "make"
+    t.string   "model"
+    t.string   "description"
+    t.boolean  "active",      default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -16,6 +16,7 @@ HeliCat::Application.routes.draw do
 
   resources :inventory
   resources :items
+  resources :purchase_options
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,2 @@
+class PurchaseOptionsController < ApplicationController
+end
