@@ -5,14 +5,16 @@ HeliCat::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#show'
 
-  get "inventory/location"   => "inventory#index", defaults: {by: "location"}
-  get "inventory/department" => "inventory#index", defaults: {by: "department"}
-  get "inventory/make"       => "inventory#index", defaults: {by: "make"}
-  get "inventory/model"      => "inventory#index", defaults: {by: "model"}
-  get "user/:user"           => "items#find",     as: "find_user"
-  get "serial/:serial"       => "items#find",     as: "find_serial"
-  get "barcode/:barcode"     => "items#find",     as: "find_barcode"
-  get "items/:id/swap"       => "items#swap",     as: "swap_item"
+  get "inventory/location"             => "inventory#index",             defaults: {by: "location"}
+  get "inventory/department"           => "inventory#index",             defaults: {by: "department"}
+  get "inventory/make"                 => "inventory#index",             defaults: {by: "make"}
+  get "inventory/model"                => "inventory#index",             defaults: {by: "model"}
+  get "user/:user"                     => "items#find",                  as: "find_user"
+  get "serial/:serial"                 => "items#find",                  as: "find_serial"
+  get "barcode/:barcode"               => "items#find",                  as: "find_barcode"
+  get "items/:id/swap"                 => "items#swap",                  as: "swap_item"
+  get "purchase_option/:id/deactivate" => "purchase_options#deactivate", as: "deactivate_purchase_option"
+  get "purchase_option/:id/activate"   => "purchase_options#activate",   as: "activate_purchase_option"
 
   resources :inventory
   resources :items

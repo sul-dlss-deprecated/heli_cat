@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="span3">
+    <%= render "purchase_option_navigation" %>
+  </div>
+  <div class="span9">
+    <h3>Edit Purchase Option <%= @purchase_option.model %></h3>
+    <%= render partial: "purchase_option_form", locals: {purchase_option: @purchase_option} %>
+  </div>
+</div>

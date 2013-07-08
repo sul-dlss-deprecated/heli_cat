@@ -1,0 +1,36 @@
+<%- unless params[:action] == "new" -%>
+  <h4>This option is currently <%= purchase_option.active ? "ACTIVE" : "INACTIVE" -%></h4>
+<%- end -%>
+<%= form_for(purchase_option, html: {class: "form-horizontal"}) do |f| %>
+  <div class="control-group">
+    <%= f.label :make, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :make %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :model, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :model %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+  <%- if params[:action] == "new" -%>
+    <div class="control-group">
+      <%= f.label :active, class: "control-label" %>
+      <div class="controls">
+        <%= f.check_box :active %>
+      </div>
+    </div>
+  <%- end -%>
+  <div class="control-group">
+    <div class="controls">
+      <%= submit_tag "Save", class: "btn" %>
+    </div>
+  </div>
+<%- end -%>

@@ -1,0 +1,11 @@
+<div class="well">
+  <ul class="nav nav-list">
+    <li class="nav-header">Actions:</li>
+    <li><%= link_to "Edit", edit_purchase_option_path(@purchase_option) %></li>
+    <%- if @purchase_option.active -%>
+      <li><%= link_to("Deactivate", deactivate_purchase_option_path(@purchase_option.id)) %></li>
+    <%- else -%>
+      <li><%= link_to("Activate", activate_purchase_option_path(@purchase_option.id)) %></li>
+    <%- end -%>
+  </ul>
+</div>
