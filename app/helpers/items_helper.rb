@@ -27,7 +27,8 @@ module ItemsHelper
      OpenStruct.new(attribute: :wired_mac,            text: "Wired MAC Address",    field_type: :text_field),
      OpenStruct.new(attribute: :swap_cycle,           text: "Swap Cycle",           field_type: :text_field, placeholder: "1-year, 3-years"),
      OpenStruct.new(attribute: :warranty_start,       text: "Warranty Start Date",  field_type: :text_field, placeholder: "YYYY-MM-DD"),
-     OpenStruct.new(attribute: :notes,                text: "Notes",                field_type: :text_area)]
+     OpenStruct.new(attribute: :notes,                text: "Notes",                field_type: :text_area),
+     OpenStruct.new(attribute: :received,             text: "Received",             field_type: :check_box)]
   end
 
 end
