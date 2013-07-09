@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="span3">
+    <div class="well">
+      <ul class="nav nav-list">
+        <%- if params[:all] -%>
+          <li><%= link_to("Show Active Only", purchase_options_path) %></li>
+        <%- else -%>
+          <li><%= link_to("Show All", purchase_options_path(all: true)) %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
+    <%= render partial: "purchase_option", collection: @purchase_options %>
+  </div>
+</div>

@@ -9,6 +9,14 @@ class PurchaseOptionsController < ApplicationController
     @purchase_option = PurchaseOption.find(params[:id])
   end
 
+  def index
+    if params[:all]
+      @purchase_options = PurchaseOption.order("active desc")
+    else
+      @purchase_options = PurchaseOption.where(active: true)
+    end
+  end
+
   def create
     @purchase_option = PurchaseOption.create(create_purchase_option_params)
     flash[:success] = "Purchase Option #{@purchase_option.model} successfully created!"
