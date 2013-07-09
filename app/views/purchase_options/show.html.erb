@@ -3,6 +3,13 @@
     <%= render "purchase_option_navigation" %>
   </div>
   <div class="span9">
-    <%= @purchase_option.make %>
+    <dl class="dl-horizontal">
+      <dt>Make:</dt>
+      <dd><%= @purchase_option.make %></dd>
+      <dt>Model:</dt>
+      <dd><%= @purchase_option.model %></dd>
+      <dt>Description:</dt>
+      <dd><pre class="no-style"><%= @purchase_option.description %></pre></dd>
+    </dl>
   </div>
 </div>

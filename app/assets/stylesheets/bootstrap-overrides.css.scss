@@ -1,2 +1,9 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
+
+pre.no-style {
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
