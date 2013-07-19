@@ -4,3 +4,4 @@
     You currently have <%= pluralize @pending_purchases.length, "pending purchase" %>.  Please <%= link_to("review them", find_user_path(current_user.id, received: "f")) %> before ordering any additional equipment.
   </div>
 <%- end -%>
+<%= render_purchase_step %>

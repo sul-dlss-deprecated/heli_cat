@@ -1,0 +1,11 @@
+<div class="<%= cycle('even', 'odd') %>">
+  <div class="row">
+    <div class="span10">
+      <h2><%= option_counter + 1 %>. <%= option.model %></h2>
+    </div>
+    <div class="span2 selector">
+      <%= link_to("Select", new_purchase_path(model_id: option.id), class: "btn") %>
+    </div>
+  </div>
+  <pre><%= option.description %></pre>
+</div>
