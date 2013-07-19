@@ -4,7 +4,7 @@
       <h2><%= option_counter + 1 %>. <%= option.model %></h2>
     </div>
     <div class="span2 selector">
-      <%= link_to("Select", new_purchase_path(model_id: option.id), class: "btn") %>
+      <%= link_to("Select", new_item_path(make: option.make, model: option.model), class: "btn") %>
     </div>
   </div>
   <pre><%= option.description %></pre>

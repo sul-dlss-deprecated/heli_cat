@@ -23,13 +23,13 @@
   <div class="control-group">
     <%= f.label(:make, "Make:", class: "control-label") %>
     <div class="controls">
-      <%= f.text_field(:make, placeholder: "Mac, Dell") %>
+      <%= text_field_tag("item[make]", params["make"] || item.make , placeholder: "Mac, Dell") %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label(:model, "Model:", class: "control-label") %>
     <div class="controls">
-      <%= f.text_field(:model, placeholder: 'MacBookPro 15" - Retina, Latitude E6530') %>
+      <%= text_field_tag("item[model]", params["model"] || item.model, placeholder: 'MacBookPro 15" - Retina, Latitude E6530') %>
     </div>
   </div>
   <div class="control-group">
