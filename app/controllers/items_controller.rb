@@ -61,6 +61,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(permitted_item_params)
   end
   def permitted_item_params
-    [:user, :department, :location, :make, :model, :barcode, :serial, :computer_name, :ip_address, :wireless_mac, :wired_mac, :swap_cycle, :warranty_start, :notes]
+    [:user, :department, :location, :make, :model, :barcode, :serial, :express_service_code, :computer_name, :ip_address, :wireless_mac, :wired_mac, :swap_cycle, :warranty_start, :notes, :received]
   end
 end

@@ -2,7 +2,103 @@
   <h3>Editing <%= item.user %>'s <%= item.model %></h3>
 <%- end -%>
 <%= form_for(item, html: {class: "form-horizontal"}) do |f| %>
-  <%= render_item_form_fields(f) %>
+  <div class="control-group">
+    <%= f.label(:user, "User:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:user, placeholder: "SUNet ID") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:department, "Department:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:department, placeholder: "Webteam, DPG") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:location, "Location:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:location, placeholder: "Meyer 210, Green 315") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:make, "Make:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:make, placeholder: "Mac, Dell") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:model, "Model:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:model, placeholder: 'MacBookPro 15" - Retina, Latitude E6530') %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:barcode, "SU Barcode:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:barcode, placeholder: "75000000001234") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:serial, "Serial Number:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:serial) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:express_service_code, "Express Service Code:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:express_service_code) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:computer_name, "Computer Name:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:computer_name, placeholder: "sul-dlss-sunet-mbp") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:ip_address, "IP Address:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:ip_address) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:wireless_mac, "Wireless MAC Address:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:wireless_mac) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:wired_mac, "Wired MAC Address:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:wired_mac) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:swap_cycle, "Swap Cycle:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:swap_cycle, placeholder: "1-year, 3-years") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:warranty_start, "Warranty Start Date:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:warranty_start, placeholder: "YYYY-MM-DD") %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:notes, "Notes:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_area(:notes) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:received, "Received?:", class: "control-label") %>
+    <div class="controls">
+      <%= f.check_box(:received) %>
+    </div>
+  </div>
+
   <div class="control-group">
     <div class="controls">
       <%= submit_tag "Save", class: "btn" %>
