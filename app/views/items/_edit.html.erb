@@ -1,7 +1,7 @@
 <%- if item.user -%>
   <h3>Editing <%= item.user %>'s <%= item.model %></h3>
 <%- end -%>
-<%= form_for(item, html: {class: "form-horizontal"}) do |f| %>
+<%= form_for(item, html: {class: "form-horizontal item-form"}) do |f| %>
   <div class="control-group">
     <%= f.label(:user, "User:", class: "control-label") %>
     <div class="controls">
@@ -75,9 +75,10 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label(:swap_cycle, "Swap Cycle:", class: "control-label") %>
+    <%= f.label(:swap_cycle_number, "Swap Cycle:", class: "control-label") %>
     <div class="controls">
-      <%= f.text_field(:swap_cycle, placeholder: "1-year, 3-years") %>
+      <%= f.select(:swap_cycle_number, options_for_select((1...7), item.swap_cycle_number)) %>
+      <%= f.select(:swap_cycle_span, options_for_select([["month(s)", "months"], ["year(s)", "years"]], item.swap_cycle_span)) %>
     </div>
   </div>
   <div class="control-group">

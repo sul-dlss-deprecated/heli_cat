@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   layout "inventory"
-  
+
   def create
     @item = Item.create(item_create_params)
     flash[:success] = "#{@item.user}'s #{@item.model} was succesfully added!"
@@ -61,6 +61,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(permitted_item_params)
   end
   def permitted_item_params
-    [:user, :department, :location, :make, :model, :barcode, :serial, :express_service_code, :computer_name, :ip_address, :wireless_mac, :wired_mac, :swap_cycle, :warranty_start, :notes, :received]
+    [:user, :department, :location, :make, :model, :barcode, :serial, :express_service_code, :computer_name, :ip_address, :wireless_mac, :wired_mac, :swap_cycle_number, :swap_cycle_span, :warranty_start, :notes, :received]
   end
 end
