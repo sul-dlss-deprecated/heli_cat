@@ -3,7 +3,7 @@
     <h3>
       <%= link_to("#{purchase_option_counter+1}. #{purchase_option.model}", purchase_option_path(purchase_option)) %>
       <%- unless purchase_option.active -%>
-        <span>INACTIVE</span>
+        <i class="icon-warning-sign" data-toggle="tooltip" data-title="WARNING: This is an INACTIVE purchase option."></i>
       <%- end -%>
     </h3>
   </div>
