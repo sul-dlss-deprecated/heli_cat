@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130708194551) do
     t.string   "swap_cycle"
     t.date     "warranty_start"
     t.text     "notes"
+    t.boolean  "purchased",            default: false
     t.boolean  "received",             default: false
     t.datetime "created_at"
     t.datetime "updated_at"

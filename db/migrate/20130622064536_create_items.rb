@@ -16,6 +16,7 @@ class CreateItems < ActiveRecord::Migration
       t.string  :swap_cycle
       t.date    :warranty_start
       t.text    :notes
+      t.boolean :purchased, default: false
       t.boolean :received, default: false
       t.timestamps
     end

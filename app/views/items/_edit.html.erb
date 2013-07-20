@@ -94,7 +94,13 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label(:received, "Received?:", class: "control-label") %>
+    <%= f.label(:purchased, "Purchased?", class: "control-label") %>
+    <div class="controls">
+      <%= f.check_box(:purchased) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:received, "Received?", class: "control-label") %>
     <div class="controls">
       <%= f.check_box(:received) %>
     </div>
