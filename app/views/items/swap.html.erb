@@ -3,6 +3,19 @@
     <%= render "item_options" %>
   </div>
   <div class="span9">
-    
+    <%- unless @swappable_items.blank? -%>
+      <h2>Which piece of equipment are you swapping <%= @item.user %>'s <%= @item.model %> with?</h2>
+      <%- @swappable_items.each_with_index do |swappable_item, index| -%>
+        <%= form_tag(do_swap_item_path(@item.id)) do -%>
+          <%= hidden_field_tag :swap_id, swappable_item.id -%>
+          <%= submit_tag(:submit, {value: "Swap", class: "btn btn-danger pull-right", :"data-toggle" => "tooltip", :"data-title" => "WARNING: This will delete #{@item.user} 's #{@item.model} from the inventory!"}) -%>
+        <%- end -%>
+        <%= render partial: "items/brief_item", locals: {brief_item: swappable_item, brief_item_counter: index}  %>
+      <%- end -%>
+    <%- else -%>
+      <div class="alert alert-error">
+        <p class="lead">There are no items in the inventory to swap for this user. If you believe a purchase has already been made for <%= @item.user -%>'s equipment please contact your EP to get this corrected.</p>
+      </div>
+    <%- end -%>
   </div>
 </div>

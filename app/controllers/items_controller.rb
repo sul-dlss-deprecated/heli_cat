@@ -41,6 +41,25 @@ class ItemsController < ApplicationController
 
   def swap
     @item = Item.find(params[:id])
+    # Don't reload the user unless necessary
+    if @item.user == current_user.id
+      user = current_user
+    else
+      user = User.new(@item.user)
+    end
+    @swappable_items = user.equipment.select do |equipment|
+      equipment.id != @item.id
+    end
+  end
+
+  def do_swap
+    if params[:swap_id]
+      old_item = Item.find(params[:id])
+      new_item = Item.find(params[:swap_id])
+      old_item.destroy
+      flash[:success] = "<strong>#{old_item.user}'s #{old_item.model}</strong> removed from the inventory and <strong>#{new_item.user}'s #{new_item.model}</strong> swapped in its place."
+      redirect_to edit_item_path(new_item)
+    end
   end
 
   private
