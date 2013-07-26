@@ -15,6 +15,12 @@
         <li<%= active_class("model") %>>
           <%= link_to "Model", inventory_model_path, :"data-toggle" => "tab" %>
         </li>
+        <li>
+          <%= link_to "To be purchased", not_purchased_path, :"data-toggle" => "tab" %>
+        </li>
+        <li>
+          <%= link_to "Waiting to receive", not_received_path, :"data-toggle" => "tab" %>
+        </li>
         <li class="divider"></li>
         <li class="add">
           <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
