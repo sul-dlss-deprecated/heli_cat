@@ -5,6 +5,10 @@
     <li <%= active_class("edit", param: "action") %>><%= link_to("Edit", edit_item_path(@item)) %></li>
     <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(@item)) %></li>
     <li class="divider"></li>
-    <li><%= link_to("Delete", "#")%>
+    <li>
+      <%= form_tag(item_path(@item), method: "delete") do -%>
+        <%= submit_tag("Delete", class: "button-as-link") %>
+      <%- end -%>
+    </li>
   </ul>
 </div>

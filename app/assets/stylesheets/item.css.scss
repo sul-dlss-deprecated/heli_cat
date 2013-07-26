@@ -7,6 +7,17 @@
 			margin-right: -15px;
 		}
 	}
+	form {
+		margin: 0;
+		input[type='submit'] {
+			display: block;
+			width: 100%;
+			text-align: left;
+			margin-left: -15px;
+			margin-right: -15px;
+			padding-left: 15px;
+		}
+	}
 }
 .item-form {
 	#item_swap_cycle_number {
@@ -14,5 +25,15 @@
 	}
 	#item_swap_cycle_span {
 		width: 165px;
+	}
+}
+.button-as-link {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: #08c;
+	&:hover {
+		color: darken(#08c, 15%);
 	}
 }

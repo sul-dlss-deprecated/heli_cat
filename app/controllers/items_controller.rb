@@ -39,6 +39,13 @@ class ItemsController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    flash[:notice] = "<strong>#{item.user}'s #{item.model}</strong> removed from the inventory."
+    redirect_to inventory_location_path
+  end
+
   def swap
     @item = Item.find(params[:id])
     # Don't reload the user unless necessary
