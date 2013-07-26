@@ -12,6 +12,8 @@ HeliCat::Application.routes.draw do
   get "user/:user"                     => "items#find",                  as: "find_user"
   get "serial/:serial"                 => "items#find",                  as: "find_serial"
   get "barcode/:barcode"               => "items#find",                  as: "find_barcode"
+  get "department/:department"         => "items#find",                  as: "find_department"
+  get "location/:location"             => "items#find",                  as: "find_location"
   get "items/:id/swap"                 => "items#swap",                  as: "swap_item"
   get "purchase_option/:id/deactivate" => "purchase_options#deactivate", as: "deactivate_purchase_option"
   get "purchase_option/:id/activate"   => "purchase_options#activate",   as: "activate_purchase_option"
