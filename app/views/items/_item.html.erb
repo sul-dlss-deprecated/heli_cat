@@ -1,5 +1,7 @@
 <div class="item">
-  <h3><%= item.user %>'s <%= item.model %></h3>
+  <h3>
+    <%= link_to_unless((params[:controller] == "items" and params[:action] == "show"), "#{item.user}'s #{item.model}", item_path(item)) -%>
+  </h3>
   <dl class="dl-horizontal">
     <%- unless item.department -%>
       <dt>Department:</dt>
