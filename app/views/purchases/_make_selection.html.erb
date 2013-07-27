@@ -1,14 +1,18 @@
 <%- @purchase_header = "Which kind of computer would you like to purchase?" -%>
 <div class="row">
-  <div class="span6">
+  <div class="span4">
     <div class="hero-unit">
       <h3><%= link_to("Mac", new_purchase_path(make: "Mac"))%></h3>
     </div>
   </div>
-  
-  <div class="span6">
+  <div class="span4">
     <div class="hero-unit">
       <h3><%= link_to("PC", new_purchase_path(make: "PC")) %></h3>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="hero-unit">
+      <h3><%= link_to("Other", new_item_path) %></h3>
     </div>
   </div>
 </div>
