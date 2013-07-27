@@ -14,8 +14,8 @@ HeliCat::Application.routes.draw do
   get  "barcode/:barcode"               => "items#find",                  as: "find_barcode"
   get  "department/:department"         => "items#find",                  as: "find_department"
   get  "location/:location"             => "items#find",                  as: "find_location"
-  get  "not_received"                   => "items#find",                  as: "not_received",  defaults: {purchased: false}
-  get  "not_purchased"                  => "items#find",                  as: "not_purchased", defaults: {received:  false}
+  get  "not_received"                   => "items#find",                  as: "not_received",  defaults: {received: false}
+  get  "not_purchased"                  => "items#find",                  as: "not_purchased", defaults: {purchased:  false}
   get  "items/:id/swap"                 => "items#swap",                  as: "swap_item"
   post "items/:id/do_swap"              => "items#do_swap",               as: "do_swap_item"
   get  "purchase_option/:id/deactivate" => "purchase_options#deactivate", as: "deactivate_purchase_option"
