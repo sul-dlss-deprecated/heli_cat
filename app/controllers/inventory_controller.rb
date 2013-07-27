@@ -10,6 +10,11 @@ class InventoryController < ApplicationController
     elsif by
       @items = Item.order(by)
     end
+    respond_to do |format|
+      format.html
+      format.xml  {render xml:  @items.to_xml}
+      format.json {render json: @items.to_json}
+    end
   end
 
   private
