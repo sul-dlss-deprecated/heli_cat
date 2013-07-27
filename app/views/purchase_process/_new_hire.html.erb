@@ -1,0 +1,65 @@
+<h4>To initiate a computer purchase (anybody)</h4>
+<ol>
+  <li>Click on <%= link_to "Purchase a new computer", new_purchase_path %> from the <%= link_to "home page", root_path %>.</li>
+  <li>Select the model (Mac or PC).</li>
+  <li>Choose the make of computer you would like to purchase.</li>
+  <li>
+    Fill out the available information about the computer and save.
+    <ul><li><p class="muted">This initial information should include User, Department, and Location.</p></li></ul>
+  </li>
+</ol>
+
+<h4>Once a computer purchase has been requested (EP)</h4>
+<ul>
+  <li>An email will be sent out indicating that a computer purchase needs to be initiated.</li>
+  <li>
+    If the requested computer is a Mac:
+    <ul>
+      <li>Send an email to Ava requesting the purchase and include the following:
+        <ul>
+          <li>User</li>
+          <li>Model</li>
+          <li>Description for that model's <%= link_to "purchase option", purchase_options_path %></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    If the requested computer is a PC:
+    <ul>
+      <li>Create a (Location Type) Possum ticket and include the Model, User, and PTA in the comment section.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Purchasing a Mac computer (DLSS Admin)</h4>
+<ol>
+  <li>Purchase the new computer from <%= link_to("Apple", "http://apple.com/mac/") %> based on the details in the email requesting the purchase.</li>
+  <li>Unless otherwise indicated a monitor should be purchase with the computer.</li>
+  <li>AppleCare <strong>MUST</strong> be purchased with the computer/monitor combination.</li>
+  <li>Address the shipment to the department EP (optionally add the user's name).</li>
+</ol>
+
+<h4>After receiving the computer (EP)</h4>
+<ol>
+  <li>Apply barcode to computer (apply duplicate barcode to box)</li>
+  <li>Enter the barcode and serial number into the inventory.</li>
+  <li>
+    Create a (Location Type) Possum ticket including the following:
+    <ul>
+      <li>Barcode and the user.</li>
+      <li>Ask that it be entered into the inventory.</li>
+      <li>Ask that Tech Support install the required software.</li>
+      <li>(Optional: If the user would like to have their machine managed then that should be requested instead of just the required software)</li>
+      <li>Let them know that you'll deliver it to their office.</li>
+    </ul>
+  </li>
+  <li>Deliver the computer to the Tech Support office.</li>
+</ol>
+
+<h4>After receiving the computer from Tech Support (EP)</h4>
+<ol>
+  <li>Add any remaining details into inventory.</li>
+  <li>Optional: Make user an admin on the computer (most likely in the case of developers who need to regularly install software).</li>
+  <li>Deliver computer to user.</li>
+</ol>

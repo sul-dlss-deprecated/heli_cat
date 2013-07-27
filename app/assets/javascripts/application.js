@@ -15,5 +15,7 @@
 //= require bootstrap-alert
 //= require bootstrap-typeahead
 //= require bootstrap-tooltip
+//= require bootstrap-collapse
+//= require bootstrap-transition
 //= require turbolinks
 //= require_tree .

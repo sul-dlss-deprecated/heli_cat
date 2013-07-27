@@ -1,1 +1,39 @@
 <h1>Process for purchasing equipment in DLSS</h1>
+<div class="accordion" id="purchase-accordion">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#purchase-accordion" href="#collapseOne">
+        Purchasing a computer for a new hire
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= render "new_hire" %>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#purchase-accordion" href="#collapseTwo">
+        Swapping an existing computer
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= render "swapping" %>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#purchase-accordion" href="#collapseThree">
+        Purchasing miscellaneous equipment
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= render "misc" %>
+      </div>
+    </div>
+  </div>
+</div>
