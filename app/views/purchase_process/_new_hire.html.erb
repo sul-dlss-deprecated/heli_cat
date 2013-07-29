@@ -1,13 +1,5 @@
 <h4>To initiate a computer purchase (anybody)</h4>
-<ol>
-  <li>Click on <%= link_to "Purchase new equipment", new_purchase_path %> from the <%= link_to "home page", root_path %>.</li>
-  <li>Select the model (Mac or PC).</li>
-  <li>Choose the make of computer you would like to purchase.</li>
-  <li>
-    Fill out the available information about the computer and save.
-    <ul><li><p class="muted">This initial information should include User, Department, and Location.</p></li></ul>
-  </li>
-</ol>
+<%= render "purchase_new" %>
 
 <h4>Once a computer purchase has been requested (EP)</h4>
 <ul>
