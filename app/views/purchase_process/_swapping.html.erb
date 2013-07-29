@@ -1,8 +1,8 @@
 <h4>Identifying computers that are to be swapped</h4>
 <p class="text-error lead">TODO</p>
 <h4>Requesting the swap model (anybody)</h4>
-<%= render "purchase_new" %>
-<h4>Swapping the computer in the inventory (anybody)</h4>
+<%= render partial: "purchase_new", locals: { added_items: ['Add the barcode of the computer that this will be a swap for (i.e. "Swap for 75000000001234") in the notes section.'] } %>
+<h4>Swapping the computer in the inventory (EP)</h4>
 <ol>
   <li>Find the computer to be swapped in the <%= link_to "inventory", inventory_location_path %> and click on the heading.</li>
   <li>Click the "Swap" link in the Options sidebar.</li>
