@@ -105,6 +105,17 @@
       <%= f.check_box(:received) %>
     </div>
   </div>
+  <%- if params[:action] == "new" -%>
+    <div class="control-group">
+      <%= label_tag(:send_email, "Send email?", class: "control-label") %>
+      <div class="controls">
+        <%= check_box_tag(:send_email) %>
+      </div>
+    </div>
+    <%- if params[:purchase_option_id] -%>
+      <%= hidden_field_tag(:purchase_option_id, params[:purchase_option_id]) %>
+    <%- end -%>
+  <%- end -%>
 
   <div class="control-group">
     <div class="controls">

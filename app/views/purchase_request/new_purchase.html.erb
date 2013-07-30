@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <p>Please purchase a new <%= @item.model %> for <%= @item.user %>.</p>
+    <%- if @purchase_option -%>
+      <p>Please make sure that this computer matches the following specifications:</p>
+      <pre><%= @purchase_option.description %></pre></p>
+    <%- end -%>
+    <p>Please visit the <a href="<%= url_for(controller: "purchase_process", action: "index", only_path: false, host: @host) %>">purchase process documentation</a> for more information on the process.</p>
+  </body>
+</html>

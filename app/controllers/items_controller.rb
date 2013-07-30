@@ -1,10 +1,12 @@
 class ItemsController < ApplicationController
   layout "inventory"
+  
+  after_filter :send_request_email, only: :create
 
   def create
     @item = Item.create(item_create_params)
     flash[:success] = "#{@item.user}'s #{@item.model} was succesfully added!"
-    redirect_to :back
+    redirect_to item_path(@item)
   end
   
   def find
@@ -70,6 +72,12 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def send_request_email
+    if params[:send_email]
+      PurchaseRequest.new_purchase(@item, params[:purchase_option_id]).deliver
+    end
+  end
 
   def item_find_params
     p = params.dup

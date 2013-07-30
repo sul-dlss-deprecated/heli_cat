@@ -25,3 +25,4 @@ module HeliCat
     # config.i18n.default_locale = :de
   end
 end
+HeliCat::Application.config.dlss_admin_email = "no-reply@heli-cat.stanford.edu"
