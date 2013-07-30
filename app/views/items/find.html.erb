@@ -2,4 +2,8 @@
 <%- if params["received"] and params["received"] == "f" -%>
  <h2><%= pluralize(@items.length, "Item") %> yet to be received</h2>
 <%- end -%>
-<%= render partial: "items/#{items_partial}", collection: @items %>
+<div class="row">
+  <div class="span9 offset3">
+    <%= render partial: "items/#{items_partial}", collection: @items %>
+  </div>
+</div>
