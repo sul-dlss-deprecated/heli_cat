@@ -61,6 +61,36 @@ class ItemsController < ApplicationController
     end
   end
 
+  def choose_swap
+    @item = Item.find(params[:id])
+    @purchase_options = PurchaseOption.where(make: @item.make)
+  end
+
+  def change_swap_model
+    item = Item.find(params[:id])
+    purchase_option = PurchaseOption.find(params[:purchase_option_id])
+    item.purchase_option = purchase_option
+    item.save
+    flash[:success] = "#{item.user}'s #{item.model} swap model updated to #{purchase_option.model}."
+    redirect_to item_path(item)
+  end
+
+  def request_swap_purchase
+    item = Item.find(params[:id])
+    swap = Item.create
+    [:user, :department, :location].each do |attr|
+      swap.send(:"#{attr}=", item.send(attr))
+    end
+    [:model, :make].each do |attr|
+      swap.send(:"#{attr}=", item.purchase_option.send(attr))
+    end
+    swap.save
+    item.swap_item = swap.id
+    item.save
+    flash[:success] = "The purchase of a #{swap.model} to replace #{item.user}'s #{item.model} has been initiated."
+    redirect_to :back
+  end
+
   def do_swap
     if params[:swap_id]
       old_item = Item.find(params[:id])

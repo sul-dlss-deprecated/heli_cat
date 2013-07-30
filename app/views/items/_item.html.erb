@@ -67,5 +67,14 @@
       <dt>Notes:</dt>
       <dd><%= item.notes %></dd>
     <%- end -%>
+
+    <%- unless item.purchase_option.blank? -%>
+      <dt>Swap Model:</dt>
+      <dd>
+        <span data-toggle="tooltip" data-title="<%= item.purchase_option.description %>">
+          <%= item.purchase_option.model %>
+        </span>
+      </dd>
+    <%- end -%>
   </dl>
 </div>

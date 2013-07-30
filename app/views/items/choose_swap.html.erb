@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="offset3">
+    <h2>Please choose a model to swap</h2>
+  </div>
+</div>
+<%- @purchase_options.each_with_index do |purchase_option, index| -%>
+  <div class="row">
+    <div class="span5 offset3">
+      <h3 data-toggle="tooltip" data-title="<%= purchase_option.description %>"><%= link_to purchase_option.model, purchase_option %></h3>
+    </div>
+    <div class="span2">
+      <%= form_tag(change_swap_model_item_path, class: "swap_model_form") do %>
+        <%= hidden_field_tag(:purchase_option_id, purchase_option.id) %>
+        <%= submit_tag("Select Model", class: "pull-left btn") %>
+      <%- end -%>
+    </div>
+  </div>
+<%- end -%>

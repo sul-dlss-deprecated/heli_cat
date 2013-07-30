@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130708194551) do
     t.string   "swap_cycle"
     t.date     "warranty_start"
     t.text     "notes"
+    t.integer  "swap_item"
     t.boolean  "purchased",            default: false
     t.boolean  "received",             default: false
     t.datetime "created_at"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130708194551) do
   end
 
   create_table "purchase_options", force: true do |t|
+    t.integer  "item_id"
     t.string   "make"
     t.string   "model"
     t.string   "description"
