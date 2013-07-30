@@ -21,5 +21,14 @@ function autofill_barcode(){
 		}
 	});
 }
-$(document).ready(function(){item_edit_typeahead(); handle_dell_service_code(); autofill_barcode()});
-document.addEventListener("page:load", function(){item_edit_typeahead(); handle_dell_service_code(); autofill_barcode()});
+function swap_value_for_current_user(){
+	$("[data-toggle='current-user']").on("click", function(){
+		var link = $(this);
+		var user = $(this).attr("data-current-user");
+		var target = $($(this).attr("data-target"));
+		target.attr("value", user);
+		return false;
+	});
+}
+$(document).ready(function(){item_edit_typeahead(); handle_dell_service_code(); autofill_barcode(); swap_value_for_current_user()});
+document.addEventListener("page:load", function(){item_edit_typeahead(); handle_dell_service_code(); autofill_barcode(); swap_value_for_current_user()});
