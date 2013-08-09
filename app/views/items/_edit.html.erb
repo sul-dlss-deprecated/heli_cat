@@ -80,8 +80,8 @@
   <div class="control-group">
     <%= f.label(:swap_cycle_number, "Swap Cycle:", class: "control-label") %>
     <div class="controls">
-      <%= f.select(:swap_cycle_number, options_for_select((1...7), item.swap_cycle_number)) %>
-      <%= f.select(:swap_cycle_span, options_for_select([["month(s)", "months"], ["year(s)", "years"]], item.swap_cycle_span)) %>
+      <%= f.select(:swap_cycle_number, options_for_select([""].concat((1...7).to_a), item.swap_cycle_number)) %>
+      <%= f.select(:swap_cycle_span, options_for_select([["Select...", ""], ["month(s)", "months"], ["year(s)", "years"]], item.swap_cycle_span)) %>
     </div>
   </div>
   <div class="control-group">
