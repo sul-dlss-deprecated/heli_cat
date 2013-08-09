@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130708194551) do
     t.string   "wireless_mac"
     t.string   "wired_mac"
     t.string   "swap_cycle"
-    t.date     "warranty_start"
+    t.date     "warranty_end"
     t.text     "notes"
     t.integer  "swap_item"
     t.boolean  "purchased",            default: false

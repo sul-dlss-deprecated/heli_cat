@@ -53,14 +53,14 @@
       <dd><%= item.wired_mac %></dd>
     <%- end -%>
 
-    <%- unless item.swap_cycle.blank? -%>
+    <%- unless item.swap_cycle.blank? or item.swap_cycle.strip == "-" -%>
       <dt>Swap Cycle:</dt>
       <dd><%= item.swap_cycle %></dd>
     <%- end -%>
 
-    <%- unless item.warranty_start.blank? -%>
-      <dt>Warranty Start Date:</dt>
-      <dd><%= item.warranty_start %></dd>
+    <%- unless item.warranty_end.blank? -%>
+      <dt>Warranty End Date:</dt>
+      <dd><%= item.warranty_end %></dd>
     <%- end -%>
 
     <%- unless item.notes.blank? -%>

@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
   has_one :purchase_option
   validates :swap_cycle, format: {with: /|\d{1}-years|months|/, message: "Swap cycle not valid"}
 
-  validates :swap_cycle_number, inclusion: { in: [""].concat(("1"..."7").to_a),
+  validates :swap_cycle_number, inclusion: { in: [nil, ""].concat(("1"..."7").to_a),
                                              message: "%{value} is not a valid number" }
   validates :swap_cycle_span,   inclusion: { in: [nil, "years", "months"],
                                              message: "%{value} is not a valid date unit" }
