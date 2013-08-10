@@ -27,6 +27,23 @@
 		width: 165px;
 	}
 }
+
+.warranty {
+	&.expired {
+		color: red;
+		text-decoration: line-through;
+	}
+	&.almost-expired {
+		color: red;
+	}
+	&.expires-within-year {
+		color: #FFD700;
+	}
+	&.expires-next-year {
+		color: blue;
+	}
+}
+
 .button-as-link {
 	border: 0;
 	margin: 0;

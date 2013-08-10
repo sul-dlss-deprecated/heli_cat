@@ -19,4 +19,29 @@ module InventoryHelper
   def permitted_inventory_partials
     [:location, :department]
   end
+
+  def warranty_class(item)
+    if item.days_left_in_warranty
+      if item.days_left_in_warranty < 0
+        "expired"
+      else
+        case item.days_left_in_warranty
+          when 0...183 then "almost-expired"
+          when 184...365 then "expires-within-year"
+          when 366...730 then "expires-next-year"
+          else
+            "not-expiring-soon"
+        end
+      end
+    end
+  end
+
+  def warranty_status_text
+    {"expired" => "The warranty for this item has expired!",
+     "almost-expired" => "This item's warranty will expire within the next 6 months.",
+     "expires-within-year" => "This item's warrany will expire within the next year.",
+     "expires-next-year" => "This item's warrany doesn't expire until next year.",
+     "not-expiring-soon" => "This warranty will not expire anytime soon."}
+  end
+
 end

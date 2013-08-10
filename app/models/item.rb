@@ -23,6 +23,10 @@ class Item < ActiveRecord::Base
     return nil unless swap_cycle
     swap_cycle.split("-")[1]
   end
+  def days_left_in_warranty
+    return nil if warranty_end.blank?
+    @days_left_in_warranty ||= (warranty_end - Date.today).to_i
+  end
   def destroy
     swappable_items = self.class.where(swap_item: self.id)
     unless swappable_items.blank?

@@ -60,7 +60,7 @@
 
     <%- unless item.warranty_end.blank? -%>
       <dt>Warranty End Date:</dt>
-      <dd><%= item.warranty_end %></dd>
+      <dd class='warranty <%= warranty_class(item) %>'><span data-toggle="tooltip" data-title="<%= warranty_status_text[warranty_class(item)] %>"><%= item.warranty_end %></span></dd>
     <%- end -%>
 
     <%- unless item.notes.blank? -%>
