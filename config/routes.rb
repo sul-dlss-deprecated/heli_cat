@@ -16,6 +16,7 @@ HeliCat::Application.routes.draw do
   get  "location/:location"               => "items#find",                   as: "find_location"
   get  "not_received"                     => "items#find",                   as: "not_received",  defaults: {received: false}
   get  "not_purchased"                    => "items#find",                   as: "not_purchased", defaults: {purchased:  false}
+  get  "to_be_swapped"                    => "items#to_be_swapped",          as: "to_be_swapped"
   get  "items/:id/choose_swap"            => "items#choose_swap",            as: "choose_swap_item"
   post "items/:id/change_swap_model"      => "items#change_swap_model",      as: "change_swap_model_item"
   post "items/:id/request_swap_purchase"  => "items#request_swap_purchase",  as: "request_swap_purchase"

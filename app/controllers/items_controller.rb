@@ -48,6 +48,15 @@ class ItemsController < ApplicationController
     redirect_to inventory_location_path
   end
 
+  def to_be_swapped
+    @items = Item.where("warranty_end <= ?", warranty_cutoff)
+    respond_to do |format|
+      format.html
+      format.xml  {render xml: @items.to_xml}
+      format.json {render xml: @items.to_json}
+    end
+  end
+
   def swap
     @item = Item.find(params[:id])
     # Don't reload the user unless necessary
