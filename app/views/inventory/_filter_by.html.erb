@@ -1,0 +1,22 @@
+<li class="nav-header filter-by">Filter by:</li>
+<li<%= active_class("location") %>>
+  <%= link_to "Location", inventory_location_path, :"data-toggle" => "filter-by" %>
+</li>
+<li<%= active_class("department") %>>
+  <%= link_to "Deparment", inventory_department_path, :"data-toggle" => "filter-by" %>
+</li>
+<li<%= active_class("make") %>>
+  <%= link_to "Make", inventory_make_path, :"data-toggle" => "filter-by" %>
+</li>
+<li<%= active_class("model") %>>
+  <%= link_to "Model", inventory_model_path, :"data-toggle" => "filter-by" %>
+</li>
+<li<%= active_class(false, param: "purchased") %>>
+  <%= link_to "To be purchased", not_purchased_path, :"data-toggle" => "filter-by" %>
+</li>
+<li<%= active_class(false, param: "received") %>>
+  <%= link_to "Waiting to receive", not_received_path, :"data-toggle" => "filter-by" %>
+</li>
+<li<%= active_class("to_be_swapped", param: "action") %>>
+  <%= link_to "To be swapped", to_be_swapped_path, :"data-toggle" => "filter-by" %>
+</li>

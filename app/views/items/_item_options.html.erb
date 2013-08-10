@@ -1,5 +1,5 @@
 <div class="well item_options">
-  <ul class="nav nav-list">
+  <ul class="nav nav-list collapse-filter-by">
     <li class="nav-header">Options:</li>
     <li <%= active_class("show", param: "action") %>><%= link_to("Show", item_path(@item)) %></li>
     <li <%= active_class("edit", param: "action") %>><%= link_to("Edit", edit_item_path(@item)) %></li>
@@ -16,6 +16,8 @@
         <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(@item)) %></li>
       <%- end -%>
     <%- end -%>
+    <li class="divider"></li>
+    <%= render "inventory/filter_by" %>
     <li class="divider"></li>
     <li>
       <%= form_tag(item_path(@item), method: "delete") do -%>

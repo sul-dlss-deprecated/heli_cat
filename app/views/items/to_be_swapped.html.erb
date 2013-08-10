@@ -1,9 +1,13 @@
 <%- items_partial = (@items.length == 1) ? "item" : "brief_item" -%>
-<%- unless @items.blank? -%>
-  <h2><%= pluralize(@items.length, "item") %> to be swapped in this cycle</h2>
-<%- end -%>
 <div class="row">
-  <div class="span9 offset3">
+  <div class="span3">
+    <div class="well inventory_options">
+      <ul class="nav nav-list">
+        <%= render "inventory/filter_by" %>
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
     <%= render partial: "items/#{items_partial}", collection: @items %>
   </div>
 </div>

@@ -24,4 +24,17 @@ jQuery(document).on("ready page:load", function(){
 		target.attr("value", user);
 		return false;
 	});
+
+	// Handle embeded Filter By toggles
+	$(".collapse-filter-by [data-toggle='filter-by']").each(function(){
+		$(this).parent().hide();
+	});
+	$(".collapse-filter-by").each(function(){
+		var collapse_parent = $(this);
+		collapse_parent.on("click", ".filter-by", function(){
+			$("[data-toggle='filter-by']", collapse_parent).each(function(){
+				$(this).parent().slideToggle();
+			});
+		});
+	});
 });
