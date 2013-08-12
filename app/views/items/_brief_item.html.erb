@@ -21,4 +21,9 @@
     <dt>Serial:</dt>
     <dd><%= brief_item.serial %></dd>
   <%- end -%>
+
+  <%- if !brief_item.warranty_end.blank? and brief_item.days_left_in_warranty < 365 -%>
+    <dt>Warranty End Date:</dt>
+    <dd class='warranty <%= warranty_class(brief_item) %>'><span data-toggle="tooltip" data-title="<%= warranty_status_text[warranty_class(brief_item)] %>"><%= brief_item.warranty_end %></span></dd>
+  <%- end -%>
 </dl>
