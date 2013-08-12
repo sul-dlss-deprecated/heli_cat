@@ -26,3 +26,4 @@ module HeliCat
   end
 end
 HeliCat::Application.config.dlss_admin_email = "no-reply@heli-cat.stanford.edu"
+HeliCat::Application.config.admins = begin; YAML.load_file("#{Rails.root}/config/admins.yml")["admins"]; rescue; []; end

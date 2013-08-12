@@ -21,3 +21,6 @@
 /tmp
 
 .rspec
+
+# Don't check-in admins file.
+config/admins.yml

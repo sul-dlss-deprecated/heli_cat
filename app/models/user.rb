@@ -6,4 +6,8 @@ class User
   def equipment
     @equipment ||= Item.where(:user => @id)
   end
+
+  def admin?
+    HeliCat::Application.config.admins.include? @id
+  end
 end
