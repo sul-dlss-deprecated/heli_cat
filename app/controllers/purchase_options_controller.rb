@@ -1,6 +1,8 @@
 class PurchaseOptionsController < ApplicationController
   layout "inventory"
 
+  before_filter :authorize_admin
+
   def show
     @purchase_option = PurchaseOption.find(params[:id])
   end

@@ -3,6 +3,9 @@ class ItemsController < ApplicationController
   
   after_filter :send_request_email, only: :create
 
+  before_filter :authorize_current_user_or_admin, except: [:find, :show, :to_be_swapped, :create]
+  before_filter :authorize_admin, only: [:create]
+
   def create
     @item = Item.create(item_create_params)
     flash[:success] = "#{@item.user}'s #{@item.model} was succesfully added!"

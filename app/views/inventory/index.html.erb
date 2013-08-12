@@ -3,13 +3,15 @@
     <div class="well inventory_options">
       <ul class="nav nav-list">
         <%= render "filter_by" %>
-        <li class="divider"></li>
-        <li class="add">
-          <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
-        </li>
-        <li class="add">
-          <%= link_to "Add Purchase Option", new_purchase_option_path, :"data-toggle" => "tab" %>
-        </li>
+        <%- if current_user.admin? -%>
+          <li class="divider"></li>
+          <li class="add">
+            <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
+          </li>
+          <li class="add">
+            <%= link_to "Add Purchase Option", new_purchase_option_path, :"data-toggle" => "tab" %>
+          </li>
+        <%- end -%>
       </ul>
     </div>
   </div>

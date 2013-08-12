@@ -9,7 +9,9 @@
     <div class="nav-collapse collapse">
       <ul class="nav">
         <li<%= active_class("inventory", param: "controller") %>><%= link_to("Inventory", inventory_location_path) %></li>
-        <li<%= active_class("purchase_options", param: "controller") %>><%= link_to("Purchase Options", purchase_options_path)%></li>
+        <%- if current_user.admin? -%>
+          <li<%= active_class("purchase_options", param: "controller") %>><%= link_to("Purchase Options", purchase_options_path)%></li>
+        <%- end -%>
         <li<%= active_class("purchase_process", param: "controller") %>><%= link_to("Documentation", purchase_process_index_path)%></li>
         <%- if current_user and current_user.equipment.length > 0 -%>
           <li <%= " class='active'".html_safe if params[:action] == "find" and params[:user] %>><%= link_to "My equipment <span class='badge badge-invert'>#{current_user.equipment.length}</span>".html_safe, find_user_path(current_user.id) %></li>

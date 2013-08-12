@@ -40,3 +40,13 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def admin_user
+  user = User.new("admin-user")
+  user.stub(:admin?).and_return(true)
+  user
+end
+
+def item_owner
+  User.new("item-owner")
+end
