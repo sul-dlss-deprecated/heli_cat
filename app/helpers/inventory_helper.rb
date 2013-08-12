@@ -17,7 +17,7 @@ module InventoryHelper
   end
 
   def permitted_inventory_partials
-    [:location, :department]
+    [:location, :department, :make, :model]
   end
 
   def warranty_class(item)

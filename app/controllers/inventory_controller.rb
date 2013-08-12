@@ -27,6 +27,6 @@ class InventoryController < ApplicationController
   end
 
   def permitted_by_params
-    [:location, :department]
+    [:location, :department, :make, :model]
   end
 end
