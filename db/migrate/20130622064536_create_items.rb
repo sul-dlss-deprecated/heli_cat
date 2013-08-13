@@ -14,6 +14,9 @@ class CreateItems < ActiveRecord::Migration
       t.string  :wireless_mac
       t.string  :wired_mac
       t.string  :swap_cycle
+      t.string  :shipping_provider
+      t.string  :tracking_number
+      t.string  :tracking_url
       t.date    :warranty_end
       t.text    :notes
       t.integer :swap_item
