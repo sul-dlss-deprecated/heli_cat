@@ -9,8 +9,10 @@
 		}
 	}
 }
-.collapse-filter-by .nav-header.filter-by {
-	cursor: pointer;
+@media (max-width: 767px) {
+	.filter-by {
+		cursor: pointer;
+	}
 }
 .purchase_option {
 	margin-bottom: 18px;

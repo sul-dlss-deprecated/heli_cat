@@ -1,5 +1,5 @@
-<div class="well item_options">
-  <ul class="nav nav-list <%= 'collapse-filter-by'.html_safe if current_user_is_owner_or_admin? %> ">
+<div class="well item_options responsive-collapse">
+  <ul class="nav nav-list">
     <%- if current_user_is_owner_or_admin? -%>
       <li class="nav-header">Options:</li>
       <li <%= active_class("show", param: "action") %>><%= link_to("Show", item_path(@item)) %></li>
