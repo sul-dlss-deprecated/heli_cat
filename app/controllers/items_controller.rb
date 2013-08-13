@@ -89,17 +89,12 @@ class ItemsController < ApplicationController
 
   def request_swap_purchase
     item = Item.find(params[:id])
-    swap = Item.create
-    [:user, :department, :location].each do |attr|
-      swap.send(:"#{attr}=", item.send(attr))
+    if item.purchase_option
+      item.clone_for_swap!
+      flash[:success] = "The purchase of a #{item.purchase_option.model} to replace #{item.user}'s #{item.model} has been initiated."
+    else
+      flash[:error] = "#{item.user}'s #{item.model} has not had a swap model selected yet!"
     end
-    [:model, :make].each do |attr|
-      swap.send(:"#{attr}=", item.purchase_option.send(attr))
-    end
-    swap.save
-    item.swap_item = swap.id
-    item.save
-    flash[:success] = "The purchase of a #{swap.model} to replace #{item.user}'s #{item.model} has been initiated."
     redirect_to :back
   end
 
