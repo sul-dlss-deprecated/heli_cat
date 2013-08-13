@@ -1,5 +1,22 @@
 <h4>Identifying computers that are to be swapped</h4>
-<p class="text-error lead">TODO</p>
+<ul>
+  <li>
+    Click on the <%= link_to "To be swapped", to_be_swapped_path %> link from the <%= link_to "Inventory", inventory_index_path %>.
+    <ul>
+      <li class="muted">This will return all of the items whose warranty will expire within the cutoff date for that year.</li>
+    </ul>
+  </li>
+  <li>
+    At anytime when a Warranty End Date is displayed there is a series of color coding (and tooltips) provided to inform you of an items warranty status.
+    <ul>
+      <li><span class="warranty expired">Dates like this indicate an expired warranty.</span></li>
+      <li><span class="warranty almost-expired">Dates like this indicate the warranty expires in the next 6 months.</span></li>
+      <li><span class="warranty expires-within-year">Dates like this indicate the warranty expires in the next year.</span></li>
+      <li><span class="warranty expires-next-year">Dates like this indicate the warranty expires in the next 1 - 2 years.</span></li>
+      <li><span class="warranty not-expiring-soon">Dates like this indicate the warranty won't expire for more than 2 years.</span></li>
+    </ul>
+  </li>
+</ul>
 <h4>Selecting the swap model (anybody)</h4>
 <ol>
   <li>Find the computer to be swapped in the <%= link_to "inventory", inventory_location_path %> and click on the heading.</li>
