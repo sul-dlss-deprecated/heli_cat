@@ -12,3 +12,25 @@
 .collapse-filter-by .nav-header.filter-by {
 	cursor: pointer;
 }
+.purchase_option {
+	margin-bottom: 18px;
+	&.last {
+		margin-bottom: 0;
+	}
+	.counter {
+		text-align: center;
+		h3 {
+		  font-size: 8em;
+		  color: #EEEEEE;
+	  }
+	}
+	.heading {
+		.half {
+			@media (max-width: 767px) {
+				width: 50%;
+				&.right {float: right;}
+				&.left  {float: left;}
+			}
+		}
+	}
+}
