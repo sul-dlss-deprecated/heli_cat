@@ -34,5 +34,19 @@
 				&.left  {float: left;}
 			}
 		}
+		.three-quarters {
+			@media (max-width: 767px) {
+				width: 75%;
+				&.right {float: right;}
+				&.left  {float: left;}
+			}
+		}
+		.one-quarter {
+			@media (max-width: 767px) {
+				width: 25%;
+				&.right {float: right;}
+				&.left  {float: left;}
+			}
+		}
 	}
 }

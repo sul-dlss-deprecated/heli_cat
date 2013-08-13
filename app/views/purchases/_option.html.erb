@@ -1,9 +1,9 @@
-<div class="<%= cycle('even', 'odd') %>">
-  <div class="row">
-    <div class="span10">
+<div class="<%= cycle('even', 'odd') %> purchase_option">
+  <div class="row heading">
+    <div class="span10 three-quarters left">
       <h2><%= option_counter + 1 %>. <%= option.model %></h2>
     </div>
-    <div class="span2 selector">
+    <div class="span2 selector one-quarter right">
       <%= link_to("Select", new_item_path(make: option.make, model: option.model, purchase_option_id: option.id), class: "btn") %>
     </div>
   </div>
