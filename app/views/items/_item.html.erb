@@ -63,6 +63,11 @@
       <dd class='warranty <%= warranty_class(item) %>'><span data-toggle="tooltip" data-title="<%= warranty_status_text[warranty_class(item)] %>"><%= item.warranty_end %></span></dd>
     <%- end -%>
 
+    <%- unless item.received? or item.tracking_url.blank? -%>
+      <dt>Tracking URL:</dt>
+      <dd><%= link_to item.tracking_url, item.tracking_url %></dd>
+    <%- end -%>
+
     <%- unless item.notes.blank? -%>
       <dt>Notes:</dt>
       <dd><%= item.notes %></dd>

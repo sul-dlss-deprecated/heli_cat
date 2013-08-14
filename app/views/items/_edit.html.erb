@@ -90,6 +90,30 @@
       <%= f.date_field(:warranty_end, placeholder: "YYYY-MM-DD") %>
     </div>
   </div>
+  <%- unless item.received? -%>
+    <%- if item.tracking_url.blank? -%>
+      <div class="control-group">
+        <%= f.label(:shipping_provider, "Shipping Provider:", class: "control-label") %>
+        <div class="controls">
+          <%= f.select(:shipping_provider, options_for_select([["Select...", ""], ["UPS", "UPS"]], item.shipping_provider) ) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label(:tracking_number, "Tracking Number:", class: "control-label") %>
+        <div class="controls">
+          <%= f.text_field(:tracking_number) %>
+        </div>
+      </div>
+    <%- end -%>
+    <%- if item.shipping_provider.blank? -%>
+      <div class="control-group">
+        <%= f.label(:tracking_url, "Tracking URL:", class: "control-label") %>
+        <div class="controls">
+          <%= f.text_field(:tracking_url, :"data-toggle" => "tooltip", :"data-title" => "Only enter a Tracking URL if the Shipping Provider doesn't show up in the list above.") %>
+        </div>
+      </div>
+    <%- end -%>
+  <%- end -%>
   <div class="control-group">
     <%= f.label(:notes, "Notes:", class: "control-label") %>
     <div class="controls">

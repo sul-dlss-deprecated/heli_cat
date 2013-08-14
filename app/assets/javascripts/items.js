@@ -12,6 +12,15 @@ jQuery(document).on("ready page:load", function(){
 			service_code_parent.hide("slow");
 		}
 	});
+
+	$("#item_shipping_provider").on("change", function(){
+		if($(this).val() != "") {
+			$("#item_tracking_url").closest(".control-group").hide("slow");
+		}else{
+			$("#item_tracking_url").closest(".control-group").show("slow");
+		}
+	});
+
 	$("#item_barcode").keyup(function(){
 		if($(this).prop("value").length == 2) {
 			$(this).prop("value", $(this).prop("value") + "00000000");
