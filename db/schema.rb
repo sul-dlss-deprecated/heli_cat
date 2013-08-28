@@ -30,11 +30,12 @@ ActiveRecord::Schema.define(version: 20130708194551) do
     t.string   "shipping_provider"
     t.string   "tracking_number"
     t.string   "tracking_url"
+    t.text     "stored_tracking_information"
     t.date     "warranty_end"
     t.text     "notes"
     t.integer  "swap_item"
-    t.boolean  "purchased",            default: false
-    t.boolean  "received",             default: false
+    t.boolean  "purchased",                   default: false
+    t.boolean  "received",                    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

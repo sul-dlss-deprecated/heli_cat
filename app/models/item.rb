@@ -6,6 +6,8 @@ class Item < ActiveRecord::Base
                                              message: "%{value} is not a valid number" }
   validates :swap_cycle_span,   inclusion: { in: [nil, "years", "months"],
                                              message: "%{value} is not a valid date unit" }
+
+  serialize :stored_tracking_information, Array
   def swap_cycle_number=(number)
     self.swap_cycle = "#{number}-#{swap_cycle_span}"
     self.save!
