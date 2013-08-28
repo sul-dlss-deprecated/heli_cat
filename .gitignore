@@ -22,5 +22,6 @@
 
 .rspec
 
-# Don't check-in admins file.
+# Don't check-in sensitive config files.
 config/admins.yml
+config/UPS.yml

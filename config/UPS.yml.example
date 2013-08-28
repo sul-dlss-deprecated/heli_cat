@@ -1,0 +1,14 @@
+development:
+  access_license_number:
+  user_id:
+  password:
+
+test:
+  access_license_number:
+  user_id:
+  password:
+    
+production:
+  access_license_number:
+  user_id:
+  password:

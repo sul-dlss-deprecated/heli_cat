@@ -1,0 +1,71 @@
+module UPSResponses
+  def standard_response
+    Nokogiri::XML (
+      <<-XML
+        <TrackResponse>
+          <Shipment>
+            <Package>
+              <Activity>
+                <ActivityLocation>
+                  <Address>
+                    <City>Stanford</City>
+                    <StateProvinceCode>CA</StateProvinceCode>
+                  </Address>
+                </ActivityLocation>
+                <Status>
+                  <StatusType>
+                    <Description>DELIVERED</Description>
+                  </StatusType>
+                </Status>
+                <Date>2013-01-05</Date>
+                <Time>082200</Time>
+              </Activity>
+            </Package>
+          </Shipment>
+        </TrackResponse>
+      XML
+    )
+  end
+  def multiple_activities
+    Nokogiri::XML (
+      <<-XML
+        <TrackResponse>
+          <Shipment>
+            <Package>
+              <Activity>
+                <ActivityLocation>
+                  <Address>
+                    <City>Stanford</City>
+                    <StateProvinceCode>CA</StateProvinceCode>
+                  </Address>
+                </ActivityLocation>
+                <Status>
+                  <StatusType>
+                    <Description>DELIVERED</Description>
+                  </StatusType>
+                </Status>
+                <Date>2013-01-05</Date>
+                <Time>082200</Time>
+              </Activity>
+              <Activity>
+                <ActivityLocation>
+                  <Address>
+                    <City>Originating City</City>
+                    <StateProvinceCode>CA</StateProvinceCode>
+                  </Address>
+                </ActivityLocation>
+                <Status>
+                  <StatusType>
+                    <Description>SHIPPED</Description>
+                  </StatusType>
+                </Status>
+                <Date>2013-01-01</Date>
+                <Time>221500</Time>
+              </Activity>
+            </Package>
+          </Shipment>
+        </TrackResponse>
+      XML
+    )
+  end
+end
