@@ -81,5 +81,12 @@
         </span>
       </dd>
     <%- end -%>
+
+    <%- if item.is_trackable? -%>
+      <dt>Track:</dt>
+      <dd data-tracking-container='true'>
+        <%= link_to "See tracking information", track_item_path(item), :"data-toggle" => "tracking" %>
+      </dd>
+    <%- end -%>
   </dl>
 </div>

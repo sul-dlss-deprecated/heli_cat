@@ -46,6 +46,16 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def is_trackable?
+    !received? and !shipping_provider.blank? and !tracking_number.blank?
+  end
+
+  def tracking_information
+    @tracking_information ||= Tracking.new(self).activity.map do |activity|
+      activity.to_s
+    end
+  end
+
   def destroy
     swappable_items = self.class.where(swap_item: self.id)
     unless swappable_items.blank?

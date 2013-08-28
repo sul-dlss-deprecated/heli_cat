@@ -22,6 +22,8 @@ HeliCat::Application.routes.draw do
   post "items/:id/request_swap_purchase"  => "items#request_swap_purchase",  as: "request_swap_purchase"
   get  "items/:id/swap"                   => "items#swap",                   as: "swap_item"
   post "items/:id/do_swap"                => "items#do_swap",                as: "do_swap_item"
+  get  "items/:id/track"                  => "items#track",                  as: "track_item"
+  get  "items/:id/track/update"           => "items#track",                  as: "update_track_item", defaults: {update: true}
   get  "purchase_option/:id/deactivate"   => "purchase_options#deactivate",  as: "deactivate_purchase_option"
   get  "purchase_option/:id/activate"     => "purchase_options#activate",    as: "activate_purchase_option"
 

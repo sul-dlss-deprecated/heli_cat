@@ -108,6 +108,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def track
+    item = Item.find(params[:id])
+    if item.stored_tracking_information.blank? or params[:update]
+      item.stored_tracking_information = item.tracking_information
+      item.save
+    end
+    render json: item.stored_tracking_information
+  end
+
   private
 
   def send_request_email
