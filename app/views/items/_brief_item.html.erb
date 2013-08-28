@@ -26,4 +26,11 @@
     <dt>Warranty End Date:</dt>
     <dd class='warranty <%= warranty_class(brief_item) %>'><span data-toggle="tooltip" data-title="<%= warranty_status_text[warranty_class(brief_item)] %>"><%= brief_item.warranty_end %></span></dd>
   <%- end -%>
+
+  <%- if brief_item.is_trackable? -%>
+    <dt>Track:</dt>
+    <dd data-tracking-container='true'>
+      <%= link_to "See tracking information", track_item_path(brief_item), :"data-toggle" => "tracking" %>
+    </dd>
+  <%- end -%>
 </dl>
