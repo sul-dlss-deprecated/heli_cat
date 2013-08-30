@@ -1,30 +1,26 @@
-<div class="well item_options responsive-collapse">
-  <ul class="nav nav-list">
-    <%- if current_user_is_owner_or_admin? -%>
-      <li class="nav-header">Options:</li>
-      <li <%= active_class("show", param: "action") %>><%= link_to("Show", item_path(@item)) %></li>
-      <li <%= active_class("edit", param: "action") %>><%= link_to("Edit", edit_item_path(@item)) %></li>
-      <%- if @item.received -%>
-        <%- if @item.purchase_option.blank? -%>
-          <li <%= active_class("choose_swap", param: "action") %>><%= link_to("Choose Swap Model", choose_swap_item_path(@item)) %></li>
-        <%- elsif @item.swap_item.blank? -%>
-          <li>
-            <%= form_tag(request_swap_purchase_path(@item)) do -%>
-              <%= submit_tag("Request Swap Purchase", class: "button-as-link") %>
-            <%- end -%>
-          </li>
-        <%- else -%>
-          <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(@item)) %></li>
-        <%- end -%>
-      <%- end -%>
-      <li class="divider"></li>
+<%- item ||= @item -%>
+<%- if current_user_is_owner_or_admin?(item) -%>
+  <li class="nav-header">Item options:</li>
+  <li <%= active_class("show", param: "action") %>><%= link_to("Show", item_path(item)) %></li>
+  <li <%= active_class("edit", param: "action") %>><%= link_to("Edit", edit_item_path(item)) %></li>
+  <%- if item.received -%>
+    <%- if item.purchase_option.blank? -%>
+      <li <%= active_class("choose_swap", param: "action") %>><%= link_to("Choose Swap Model", choose_swap_item_path(item)) %></li>
+    <%- elsif item.swap_item.blank? -%>
       <li>
-        <%= form_tag(item_path(@item), method: "delete") do -%>
-          <%= submit_tag("Delete", class: "button-as-link") %>
+        <%= form_tag(request_swap_purchase_path(item)) do -%>
+          <%= submit_tag("Request Swap Purchase", class: "button-as-link") %>
         <%- end -%>
       </li>
-      <li class="divider"></li>
+    <%- else -%>
+      <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(item)) %></li>
     <%- end -%>
-    <%= render "inventory/filter_by" %>
-  </ul>
-</div>
+  <%- end -%>
+  <li class="divider"></li>
+  <li class="highlight">
+    <%= form_tag(item_path(item), method: "delete") do -%>
+      <%= submit_tag("Delete", class: "button-as-link") %>
+    <%- end -%>
+  </li>
+  <li class="divider"></li>
+<%- end -%>

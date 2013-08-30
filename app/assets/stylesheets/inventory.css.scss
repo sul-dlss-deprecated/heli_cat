@@ -1,8 +1,8 @@
-.inventory {
+.sidebar-navigation {
 	.nav {
 		li {
-			&.add {
-				a {
+			&.highlight {
+				a, input {
 				  color: red;	
 				}
 			}

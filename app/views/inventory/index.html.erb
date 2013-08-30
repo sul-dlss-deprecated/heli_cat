@@ -1,20 +1,5 @@
 <div class="row inventory">
-  <div class="span3">
-    <div class="well inventory_options responsive-collapse">
-      <ul class="nav nav-list">
-        <%= render "filter_by" %>
-        <%- if current_user.admin? -%>
-          <li class="divider"></li>
-          <li class="add">
-            <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
-          </li>
-          <li class="add">
-            <%= link_to "Add Purchase Option", new_purchase_option_path, :"data-toggle" => "tab" %>
-          </li>
-        <%- end -%>
-      </ul>
-    </div>
-  </div>
+  <%= render "shared/sidebar_navigation" %>
   <div class="span9">
     <%= render_inventory_partial  %>
   </div>

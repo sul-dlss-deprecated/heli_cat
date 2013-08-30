@@ -1,0 +1,18 @@
+<div class="span3">
+  <div class="well sidebar-navigation responsive-collapse">
+    <ul class="nav nav-list">
+      <%= render_item_options %>
+      <%- if current_user.admin? -%>
+        <li class="nav-header">Admin:</li>
+        <li class="highlight">
+          <%= link_to "Add Item", new_item_path, :"data-toggle" => "tab" %>
+        </li>
+        <li class="highlight">
+          <%= link_to "Add Purchase Option", new_purchase_option_path, :"data-toggle" => "tab" %>
+        </li>
+        <li class="divider"></li>
+      <%- end -%>
+      <%= render "inventory/filter_by" %>
+    </ul>
+  </div>
+</div>
