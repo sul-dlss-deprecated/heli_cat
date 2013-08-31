@@ -30,9 +30,11 @@ class ApplicationController < ActionController::Base
 
   def authorize_current_user_or_admin
     unless current_user.admin?
-      item = Item.find(params['id'])
-      unless item.user == current_user.id
-        raise User::NotAuthorized
+      if params['id']
+        item = Item.find(params['id'])
+        unless item.user == current_user.id
+          raise User::NotAuthorized
+        end
       end
     end
   end
