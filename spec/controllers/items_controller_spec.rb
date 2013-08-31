@@ -3,9 +3,6 @@ require "spec_helper"
 describe ItemsController do
   describe "authorization" do
     describe "of anonymous users" do
-      it "should protect the create action" do
-        -> { get :create}.should raise_error User::NotAuthorized
-      end
       it "should not protect the find action" do
         get :find
         response.should be_success
