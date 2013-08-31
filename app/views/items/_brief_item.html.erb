@@ -1,5 +1,5 @@
 <h3>
-  <%= brief_item_counter + 1 %>. <%= link_to("#{brief_item.user}'s #{brief_item.model}", item_path(brief_item)) %>
+  <%= brief_item_counter + 1 %>. <%= link_to("#{brief_item.title}", item_path(brief_item)) %>
   <%- if !brief_item.purchased -%>
     <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been purchased."></i>
   <%- elsif !brief_item.received -%>

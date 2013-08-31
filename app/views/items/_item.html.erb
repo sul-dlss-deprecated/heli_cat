@@ -1,6 +1,6 @@
 <div class="item">
   <h3>
-    <%= link_to_unless((params[:controller] == "items" and params[:action] == "show"), "#{item.user}'s #{item.model}", item_path(item)) -%>
+    <%= link_to_unless((params[:controller] == "items" and params[:action] == "show"), "#{item.title}", item_path(item)) -%>
   </h3>
   <dl class="dl-horizontal">
     <%- unless item.department -%>

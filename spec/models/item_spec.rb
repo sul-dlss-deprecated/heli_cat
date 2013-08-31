@@ -26,6 +26,37 @@ describe Item do
       swap_item.model.should == "15-inch MacBook Pro"
     end
   end
+  describe "title" do
+    it "should return the user and model when available" do
+      Item.create(user: "jdoe",
+                  model: "MacBookPro 15-inch - Retina",
+                  make: "Mac",
+                  department: "Webteam",
+                  location: "Meyer 210").title.should == "jdoe's MacBookPro 15-inch - Retina"
+    end
+    it "should return the user and make if available" do
+      Item.create(user: "jdoe", make: "Mac").title.should == "jdoe's Mac"
+    end
+    it "should return the model and department if available" do
+      Item.create(model: "MacBookPro 17-inch", department: "Webteam").title.should == "Webteam's MacBookPro 17-inch"
+    end
+    it "should return the model and location if available" do
+      Item.create(model: "MacBookPro 17-inch", location: "Meyer 210").title.should == "MacBookPro 17-inch in Meyer 210"
+    end
+    it "should return the make and location if available" do
+      Item.create(make: "Dell", location: "Meyer 210").title.should == "Dell in Meyer 210"
+    end
+    it "should return the model if it's the only thing available" do
+      Item.create(model: "MacBookPro 17-inch").title.should == "MacBookPro 17-inch"
+    end
+    it "should return the make if it's the only thing available" do
+      Item.create(make: "Dell").title.should == "Dell"
+    end
+    it "should return a friendly string if no meta-data is available" do
+      item = Item.create
+      item.title.should == "Inventory item #{item.id}"
+    end
+  end
   describe "swap_cycle" do
     it "should get the number set by swap_cycle_number" do
       item = Item.create!(swap_cycle_number: "4")

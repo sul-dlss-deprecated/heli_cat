@@ -56,6 +56,26 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def title
+    if !user.blank? && !model.blank?
+      "#{user}'s #{model}"
+    elsif !user.blank? && !make.blank?
+      "#{user}'s #{make}"
+    elsif !model.blank? && !department.blank?
+      "#{department}'s #{model}"
+    elsif !model.blank? && !location.blank?
+      "#{model} in #{location}"
+    elsif !make.blank? && !location.blank?
+      "#{make} in #{location}"
+    elsif !model.blank?
+      model
+    elsif !make.blank?
+      make
+    else
+      "Inventory item #{id}"
+    end
+  end
+
   def destroy
     swappable_items = self.class.where(swap_item: self.id)
     unless swappable_items.blank?

@@ -2,11 +2,11 @@
   <%= render "shared/sidebar_navigation" %>
   <div class="span9">
     <%- unless @swappable_items.blank? -%>
-      <h2>Which piece of equipment are you swapping <%= @item.user %>'s <%= @item.model %> with?</h2>
+      <h2>Which piece of equipment are you swapping <%= @item.title %> with?</h2>
       <%- @swappable_items.each_with_index do |swappable_item, index| -%>
         <%= form_tag(do_swap_item_path(@item.id)) do -%>
           <%= hidden_field_tag :swap_id, swappable_item.id -%>
-          <%= submit_tag(:submit, {value: "Swap", class: "btn btn-danger pull-right", :"data-toggle" => "tooltip", :"data-title" => "WARNING: This will delete #{@item.user} 's #{@item.model} from the inventory!"}) -%>
+          <%= submit_tag(:submit, {value: "Swap", class: "btn btn-danger pull-right", :"data-toggle" => "tooltip", :"data-title" => "WARNING: This will delete #{@item.title} from the inventory!"}) -%>
         <%- end -%>
         <%= render partial: "items/brief_item", locals: {brief_item: swappable_item, brief_item_counter: index}  %>
       <%- end -%>

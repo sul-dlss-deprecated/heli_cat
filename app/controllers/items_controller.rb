@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_create_params)
-    flash[:success] = "#{@item.user}'s #{@item.model} was succesfully added!"
+    flash[:success] = "#{@item.title} was succesfully added!"
     redirect_to item_path(@item)
   end
   
@@ -37,9 +37,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_update_params)
-      flash[:success] = "#{@item.user}'s #{@item.model} was succesfully updated!"
+      flash[:success] = "#{@item.title} was succesfully updated!"
     else
-      flash[:error] = "There was a problem updating #{@item.user}'s #{@item.model}.  Please try again."
+      flash[:error] = "There was a problem updating #{@item.title}.  Please try again."
     end
     redirect_to :back
   end
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    flash[:notice] = "<strong>#{item.user}'s #{item.model}</strong> removed from the inventory."
+    flash[:notice] = "<strong>#{item.title}</strong> removed from the inventory."
     redirect_to inventory_location_path
   end
 
@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
     purchase_option = PurchaseOption.find(params[:purchase_option_id])
     item.purchase_option = purchase_option
     item.save
-    flash[:success] = "#{item.user}'s #{item.model} swap model updated to #{purchase_option.model}."
+    flash[:success] = "#{item.title} swap model updated to #{purchase_option.model}."
     redirect_to item_path(item)
   end
 
@@ -91,9 +91,9 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     if item.purchase_option
       item.clone_for_swap!
-      flash[:success] = "The purchase of a #{item.purchase_option.model} to replace #{item.user}'s #{item.model} has been initiated."
+      flash[:success] = "The purchase of a #{item.purchase_option.model} to replace #{item.title} has been initiated."
     else
-      flash[:error] = "#{item.user}'s #{item.model} has not had a swap model selected yet!"
+      flash[:error] = "#{item.title} has not had a swap model selected yet!"
     end
     redirect_to :back
   end
@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
       old_item = Item.find(params[:id])
       new_item = Item.find(params[:swap_id])
       old_item.destroy
-      flash[:success] = "<strong>#{old_item.user}'s #{old_item.model}</strong> removed from the inventory and <strong>#{new_item.user}'s #{new_item.model}</strong> swapped in its place."
+      flash[:success] = "<strong>#{old_item.title}</strong> removed from the inventory and <strong>#{new_item.title}</strong> swapped in its place."
       redirect_to edit_item_path(new_item)
     end
   end
