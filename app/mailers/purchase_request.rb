@@ -9,7 +9,7 @@ class PurchaseRequest < ActionMailer::Base
     else
       nil
     end
-    mail(to: HeliCat::Application.config.dlss_admin_email, subject: "New computer purchase request.")
+    mail(to: HeliCat::Application.config.dlss_ep_email, subject: "New equipment purchase request.")
   end
 
   private

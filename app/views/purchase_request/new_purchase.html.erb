@@ -1,10 +1,11 @@
 <html>
   <body>
-    <p>Please purchase a new <%= @item.model %> for <%= @item.user %>.</p>
+    <p>Please purchase a new <%= @item.model %> for <%= @item.user %><%= " with the following specifications" if @purchase_option%>:</p>
     <%- if @purchase_option -%>
-      <p>Please make sure that this computer matches the following specifications:</p>
-      <pre><%= @purchase_option.description %></pre></p>
+      <p>Please purchase a <a href="<%= url_for(controller: "purchase_options", action: "show", id: @purchase_option.id, only_path: false, host: @host) %>">computer with the following specifications</a>:</p>
+      <pre><%= @purchase_option.description %></pre>
     <%- end -%>
     <p>Please visit the <a href="<%= url_for(controller: "purchase_process", action: "index", only_path: false, host: @host) %>">purchase process documentation</a> for more information on the process.</p>
+    <p>You can update <a href="<%= url_for(controller: "items", action: "show", id: @item.id, only_path: false, host: @host) %>"><%= "#{@item.user}'s #{@item.model}" %></a> in the inventory.</p>
   </body>
 </html>
