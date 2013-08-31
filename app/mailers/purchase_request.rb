@@ -1,9 +1,10 @@
 class PurchaseRequest < ActionMailer::Base
   default from: "no-reply@heli-cat.stanford.edu"
 
-  def new_purchase(item, purchase_option_id=nil)
+  def new_purchase(item, current_user, purchase_option_id=nil)
     @host = host
     @item = item
+    @current_user = current_user
     @purchase_option = if purchase_option_id
       PurchaseOption.find(purchase_option_id)
     else

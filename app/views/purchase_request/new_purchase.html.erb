@@ -1,11 +1,10 @@
 <html>
   <body>
-    <p>Please purchase a new <%= @item.model %> for <%= @item.user %><%= " with the following specifications" if @purchase_option%>:</p>
+    <p>A new purchase request has been made by <%= @current_user.id %>. Please <a href="<%= url_for(controller: "items", action: "show", id: @item.id, only_path: false, host: @host) %>">review the details</a> of this request and initiate the purchase<%= " <a href='#{url_for(controller: "purchase_options", action: "show", id: @purchase_option.id, only_path: false, host: @host)}'>with the following specifications</a>".html_safe if @purchase_option %>.</p>
     <%- if @purchase_option -%>
-      <p>Please purchase a <a href="<%= url_for(controller: "purchase_options", action: "show", id: @purchase_option.id, only_path: false, host: @host) %>">computer with the following specifications</a>:</p>
       <pre><%= @purchase_option.description %></pre>
     <%- end -%>
     <p>Please visit the <a href="<%= url_for(controller: "purchase_process", action: "index", only_path: false, host: @host) %>">purchase process documentation</a> for more information on the process.</p>
-    <p>You can update <a href="<%= url_for(controller: "items", action: "show", id: @item.id, only_path: false, host: @host) %>"><%= "#{@item.user}'s #{@item.model}" %></a> in the inventory.</p>
+    <p>You can update <a href="<%= url_for(controller: "items", action: "show", id: @item.id, only_path: false, host: @host) %>"><%= "#{@item.title}" %></a> in the inventory.</p>
   </body>
 </html>

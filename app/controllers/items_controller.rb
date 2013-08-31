@@ -120,7 +120,7 @@ class ItemsController < ApplicationController
 
   def send_request_email
     if params[:send_email]
-      PurchaseRequest.new_purchase(@item, params[:purchase_option_id]).deliver
+      PurchaseRequest.new_purchase(@item, current_user, params[:purchase_option_id]).deliver
     end
   end
 
