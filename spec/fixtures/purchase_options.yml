@@ -1,0 +1,23 @@
+retina:
+  make: Mac
+  model: MacBookPro 15-inch - Retina
+  description: 2.4GHz Quad-core Intel Core i7 (Turbo Boost up to 3.4GHz) / 8GB DDR3L SDRAM / 256GB Flash Storage / Intel HD Graphics 4000
+  active: true
+  
+air:
+  make: Mac
+  model: MacBookAir 13-inch
+  description: 2.0GHz Intel Dual-Core Core i7 (Turbo Boost up to 3.2GHz) / 8GB DDR3L SDRAM / 256GB Flash Storage / Intel HD Graphics 4000
+  active: true
+  
+inactive:
+  make: Mac
+  model: MacBookPro 17-inch
+  description: 1.5GHz Intel Dual-Core / 4GB DDR3 RAM / 256GB Storage / Intel HD Graphics 3000
+  active: false
+
+dell:
+  make: PC
+  model: Dell Latitude E6530
+  description: "i7-3520M Processor (2.9GHz) / 8.0GB, DDR3-1600MHz SDRAM / 256GB Mobility Solid State Drive / Intel HD Graphics 4000"
+  active: true

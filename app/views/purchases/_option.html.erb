@@ -4,7 +4,7 @@
       <h3><%= option.model %></h3>
     </div>
     <div class="span2 half right selector">
-      <%= link_to("Select", new_item_path(make: option.make, model: option.model, purchase_option_id: option.id), class: "pull-right btn") %>
+      <%= link_to("Select", new_item_path(make: option.make, model: option.model, purchase_option_id: option.id), class: "pull-right btn", id: "option-#{option.id}") %>
     </div>
   </div>
   <div class="row">
