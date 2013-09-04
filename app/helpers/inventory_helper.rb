@@ -44,4 +44,11 @@ module InventoryHelper
      "not-expiring-soon" => "This warranty will not expire anytime soon."}
   end
 
+  def pagination_counter(counter)
+    gap = 0
+    unless params[:page].blank? or params[:page].to_i < 2
+      gap = (params[:page].to_i - 1) * HeliCat::Application.config.per_page
+    end
+    counter + gap + 1
+  end
 end

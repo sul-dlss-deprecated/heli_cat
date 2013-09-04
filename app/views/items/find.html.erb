@@ -3,5 +3,10 @@
   <%= render "shared/sidebar_navigation" %>
   <div class="span9">
     <%= render partial: "items/#{items_partial}", collection: @items %>
+    <div class="row">
+      <div class="span9">
+        <%= paginate @items %>
+      </div>
+    </div>
   </div>
 </div>

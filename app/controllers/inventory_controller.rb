@@ -10,6 +10,7 @@ class InventoryController < ApplicationController
     elsif by
       @items = Item.order(by)
     end
+    @items = @items.page(params[:page]) unless ["json", "xml"].include?(params[:format])
     respond_to do |format|
       format.html
       format.xml  {render xml:  @items.to_xml}

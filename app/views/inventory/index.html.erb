@@ -2,5 +2,10 @@
   <%= render "shared/sidebar_navigation" %>
   <div class="span9">
     <%= render_inventory_partial  %>
+    <div class="row">
+      <div class="span9">
+        <%= paginate @items %>
+      </div>
+    </div>
   </div>
 </div>

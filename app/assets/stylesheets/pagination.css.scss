@@ -1,0 +1,31 @@
+.pagination {
+	& span:first-child {
+	  border-left: 1px solid #cccccc;
+	}
+	& span:last-child {
+	  border-right: 1px solid #cccccc;
+	}
+	padding: 5px 0;
+	.page, .next, .prev, .first, .last {
+		border-left: 1px solid #cccccc;
+		border-top: 1px solid #cccccc;
+		border-bottom: 1px solid #cccccc;
+		margin: 0;
+		padding: 5px 20px;
+		&.current {
+  		color: red;	
+		}
+		&.gap {
+			margin-right: -4px;
+		}
+	}
+	.prev {
+		border-left: none;
+	}
+	.last {
+		border-left: 1px solid #cccccc;
+	}
+	.first {
+		border-right: 1px solid #cccccc;
+	}
+}

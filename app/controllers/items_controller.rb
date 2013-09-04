@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   
   def find
     @items = Item.where(item_find_params)
+    @items = @items.page(params[:page]) unless ["json", "xml"].include?(params[:format])
     respond_to do |format|
       format.html
       format.xml  {render xml:  @items.to_xml}
@@ -129,6 +130,7 @@ class ItemsController < ApplicationController
     p.delete(:controller)
     p.delete(:action)
     p.delete(:format)
+    p.delete(:page)
     p
   end
 
