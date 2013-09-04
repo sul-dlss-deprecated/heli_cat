@@ -11,6 +11,16 @@ class PurchaseOptionsController < ApplicationController
     @purchase_option = PurchaseOption.find(params[:id])
   end
 
+  def update
+    @purchase_option = PurchaseOption.find(params[:id])
+    if @purchase_option.update(purchase_option_update_params)
+      flash[:success] = "#{@purchase_option.model} was succesfully updated!"
+    else
+      flash[:error] = "There was a problem updating #{@purchase_option.model}.  Please try again."
+    end
+    redirect_to :back
+  end
+
   def index
     if params[:all]
       @purchase_options = PurchaseOption.order("active desc")
@@ -50,6 +60,10 @@ class PurchaseOptionsController < ApplicationController
   end
 
   private
+
+  def purchase_option_update_params
+    params.require(:purchase_option).permit(:make, :model, :description, :active)
+  end
 
   def create_purchase_option_params
     params.require(:purchase_option).permit(:make, :model, :description, :active)
