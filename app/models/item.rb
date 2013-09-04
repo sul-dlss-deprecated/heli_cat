@@ -1,4 +1,8 @@
 class Item < ActiveRecord::Base
+
+  paginates_per HeliCat::Application.config.per_page
+  max_paginates_per HeliCat::Application.config.per_page
+
   has_one :purchase_option
   validates :swap_cycle, format: {with: /|\d{1}-years|months|/, message: "Swap cycle not valid"}
 

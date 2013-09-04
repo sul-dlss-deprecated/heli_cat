@@ -27,5 +27,5 @@ module HeliCat
 end
 HeliCat::Application.config.dlss_ep_email = begin; File.open("#{Rails.root}/config/dlss_ep_email", "r").read.strip; rescue; "no-reply@heli-cat.stanford.edu"; end
 HeliCat::Application.config.admins = begin; YAML.load_file("#{Rails.root}/config/admins.yml")["admins"]; rescue; []; end
-
+HeliCat::Application.config.per_page = 10
 require 'tracking'
