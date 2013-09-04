@@ -1,0 +1,61 @@
+macbook1:
+  user: jdoe1
+  make: Mac
+  model: MacBookPro 15-inch - Retina
+  department: Webteam
+  location: Meyer 181
+  barcode: "75000000001234"
+  serial: ABC123
+  purchased: true
+  received: true
+
+macbook2:
+  user: jdoe2
+  make: Mac
+  model: MacBookPro 13-inch
+  department: Lyberteam
+  location: Meyer 210
+  barcode: "75000000004321"
+  serial: XYZ321
+  purchased: true
+  received: true
+
+macbook3:
+  user: jdoe3
+  make: Mac
+  model: MacBookAir 13-inch
+  department: PSM
+  location: Meyer 310
+  barcode: "75000000009876"
+  serial: CBA123
+  purchased: true
+  received: true
+  
+pc1:
+  user: jdoe4
+  make: Dell
+  model: Latitude E6530
+  department: Lyberteam
+  location: Meyer 210
+  barcode: "75000000004352"
+  serial: DJQ962
+  purchased: true
+  received: true
+  
+not_received:
+  user: jdoe1
+  make: Mac
+  model: MacBookPro 13-inch
+  department: Webteam
+  location: Meyer 181
+  purchased: true
+  received: false
+
+not_purchased:
+  user: jdoe2
+  make: Mac
+  model: MacBookPro 13-inch
+  department: Lyberteam
+  location: Meyer 210
+  purchased: false
+  received: false

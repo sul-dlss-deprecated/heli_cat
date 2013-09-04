@@ -10,13 +10,14 @@ module Features
       user
     end
 
-    def login_as user
-      ApplicationController.any_instance.stub(:current_user).and_return(user_object_for(user))
+    def login_as user, opts={}
+      ApplicationController.any_instance.stub(:current_user).and_return(user_object_for(user, opts))
     end
 
-    def user_object_for user
-      user = User.new(user.id)
-      user.stub(:admin?).and_return(user.admin?)
+    def user_object_for user, opts={}
+      user = User.new(user)
+      user.stub(:admin?).and_return(user.admin?) if opts[:admin?]
+      user
     end
   end
 end

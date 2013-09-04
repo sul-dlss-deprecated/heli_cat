@@ -12,7 +12,7 @@
       <div class="span2 half right select-widget">
         <%= form_tag(change_swap_model_item_path, class: "swap_model_form") do %>
           <%= hidden_field_tag(:purchase_option_id, purchase_option.id) %>
-          <%= submit_tag("Select Model", class: "pull-right btn") %>
+          <%= submit_tag("Select Model", class: "pull-right btn", id: "swap-model-#{purchase_option.id}") %>
         <%- end -%>
       </div>
     </div>
