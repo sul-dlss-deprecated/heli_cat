@@ -9,7 +9,7 @@
       <div class="offset2 span8 half left">
         <h3><%= purchase_option.model %></h3>
       </div>
-      <div class="span2 half right">
+      <div class="span2 half right select-widget">
         <%= form_tag(change_swap_model_item_path, class: "swap_model_form") do %>
           <%= hidden_field_tag(:purchase_option_id, purchase_option.id) %>
           <%= submit_tag("Select Model", class: "pull-right btn") %>

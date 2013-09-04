@@ -27,6 +27,11 @@
 	  }
 	}
 	.heading {
+		.select-widget {
+			.btn {
+				margin: 15px 0;
+			}
+		}
 		.half {
 			@media (max-width: 767px) {
 				width: 50%;
