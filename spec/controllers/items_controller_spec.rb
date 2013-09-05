@@ -82,7 +82,7 @@ describe ItemsController do
         response.should be_redirect
       end
       it "should allow access to the request_swap_purchase action" do
-        get :do_swap, id: Item.create.id, swap_id: "1"
+        get :do_swap, id: Item.create.id, swap_id: Item.create.id
         flash[:success].should =~ /removed from the inventory and .* swapped in its place/
         response.should be_redirect
       end
@@ -127,7 +127,7 @@ describe ItemsController do
         response.should be_redirect
       end
       it "should allow access to the request_swap_purchase action" do
-        get :do_swap, id: Item.create(user: "item-owner").id, swap_id: "1"
+        get :do_swap, id: Item.create(user: "item-owner").id, swap_id: Item.create.id
         flash[:success].should =~ /removed from the inventory and .* swapped in its place/
         response.should be_redirect
       end
