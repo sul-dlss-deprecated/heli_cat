@@ -43,7 +43,9 @@ class Item < ActiveRecord::Base
                                         department: department,
                                         location:   location,
                                         model:      purchase_option.model,
-                                        make:       purchase_option.make)
+                                        make:       purchase_option.make,
+                                        purchased:  true,
+                                        received:   true)
       new_swap_item.save
       self.swap_item = new_swap_item.id
       self.save

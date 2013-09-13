@@ -19,7 +19,7 @@ HeliCat::Application.routes.draw do
   get  "to_be_swapped"                    => "items#to_be_swapped",          as: "to_be_swapped"
   get  "items/:id/choose_swap"            => "items#choose_swap",            as: "choose_swap_item"
   post "items/:id/change_swap_model"      => "items#change_swap_model",      as: "change_swap_model_item"
-  post "items/:id/request_swap_purchase"  => "items#request_swap_purchase",  as: "request_swap_purchase"
+  post "items/:id/create_swap_record"     => "items#create_swap_record",     as: "create_swap_record"
   get  "items/:id/swap"                   => "items#swap",                   as: "swap_item"
   post "items/:id/do_swap"                => "items#do_swap",                as: "do_swap_item"
   get  "items/:id/track"                  => "items#track",                  as: "track_item"

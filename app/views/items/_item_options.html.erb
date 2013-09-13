@@ -6,14 +6,16 @@
   <%- if item.received -%>
     <%- if item.purchase_option.blank? -%>
       <li <%= active_class("choose_swap", param: "action") %>><%= link_to("Choose Swap Model", choose_swap_item_path(item)) %></li>
-    <%- elsif item.swap_item.blank? -%>
-      <li>
-        <%= form_tag(request_swap_purchase_path(item)) do -%>
-          <%= submit_tag("Request Swap Purchase", class: "button-as-link") %>
-        <%- end -%>
-      </li>
-    <%- else -%>
-      <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(item)) %></li>
+    <%- elsif current_user.admin? -%>
+      <%- if item.swap_item.blank? -%>
+        <li>
+          <%= form_tag(create_swap_record_path(item)) do -%>
+            <%= submit_tag("Create Swap Record", class: "button-as-link") %>
+          <%- end -%>
+        </li>
+      <%- else -%>
+        <li <%= active_class("swap", param: "action") %>><%= link_to("Swap", swap_item_path(item)) %></li>
+      <%- end -%>
     <%- end -%>
   <%- end -%>
   <li class="divider"></li>

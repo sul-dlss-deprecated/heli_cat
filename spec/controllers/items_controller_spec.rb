@@ -29,8 +29,8 @@ describe ItemsController do
       it "should protect the change_swap_model action" do
         -> { get :change_swap_model, id: Item.create.id }.should raise_error User::NotAuthorized
       end
-      it "should protect the request_swap_purchase action" do
-        -> { get :request_swap_purchase, id: Item.create.id }.should raise_error User::NotAuthorized
+      it "should protect the create_swap_record action" do
+        -> { get :create_swap_record, id: Item.create.id }.should raise_error User::NotAuthorized
       end
       it "should protect the do_swap action" do
         -> { get :do_swap, id: Item.create.id }.should raise_error User::NotAuthorized
@@ -74,16 +74,16 @@ describe ItemsController do
         flash[:success].should =~ /swap model updated/
         response.should be_redirect
       end
-      it "should allow access to the request_swap_purchase action" do
+      it "should allow access to the create_swap_record action" do
         item = Item.create
         item.purchase_option = PurchaseOption.create
-        get :request_swap_purchase, id: item.id
-        flash[:success].should =~ /The purchase of a .* to replace .* has been initiated./
+        get :create_swap_record, id: item.id
+        flash[:success].should =~ /has been added to the inventory to replace/
         response.should be_redirect
       end
-      it "should allow access to the request_swap_purchase action" do
+      it "should allow access to the do_swap action" do
         get :do_swap, id: Item.create.id, swap_id: Item.create.id
-        flash[:success].should =~ /removed from the inventory and .* swapped in its place/
+        flash[:success].should =~ /^.* removed as user of .* and .* swapped in its place\.$/
         response.should be_redirect
       end
     end
@@ -106,10 +106,6 @@ describe ItemsController do
         flash[:notice].should =~ / removed from the inventory.$/
         response.should be_redirect
       end
-      it "should allow access to the swap action" do
-        get :swap, id: Item.create(user: "item-owner").id
-        response.should be_success
-      end
       it "should allow access to the choose_swap action" do
         get :choose_swap, id: Item.create(user: "item-owner").id
         response.should be_success
@@ -119,17 +115,14 @@ describe ItemsController do
         flash[:success].should =~ /swap model updated/
         response.should be_redirect
       end
-      it "should allow access to the request_swap_purchase action" do
-        item = Item.create(user: "item-owner")
-        item.purchase_option = PurchaseOption.create
-        get :request_swap_purchase, id: item.id
-        flash[:success].should =~ /The purchase of a .* to replace .* has been initiated./
-        response.should be_redirect
+      it "should protect access to the do_swap action" do
+        -> { get :do_swap, id: Item.create(user: "item-owner").id, swap_id: Item.create.id }.should raise_error User::NotAuthorized
       end
-      it "should allow access to the request_swap_purchase action" do
-        get :do_swap, id: Item.create(user: "item-owner").id, swap_id: Item.create.id
-        flash[:success].should =~ /removed from the inventory and .* swapped in its place/
-        response.should be_redirect
+      it "should protect access to the create_swap_record action" do
+        -> { get :create_swap_record, id: Item.create(user: "item-owner").id }.should raise_error User::NotAuthorized
+      end
+      it "should protect access to the swap action" do
+        -> { get :swap, id: Item.create(user: "item-owner").id }.should raise_error User::NotAuthorized
       end
     end
   end

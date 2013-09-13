@@ -6,7 +6,7 @@
       <%- @swappable_items.each_with_index do |swappable_item, index| -%>
         <%= form_tag(do_swap_item_path(@item.id)) do -%>
           <%= hidden_field_tag :swap_id, swappable_item.id -%>
-          <%= submit_tag(:submit, {value: "Swap", class: "btn btn-danger pull-right", :"data-toggle" => "tooltip", :"data-title" => "WARNING: This will delete #{@item.title} from the inventory!"}) -%>
+          <%= submit_tag(:submit, {value: "Swap", id: "swap-item-#{index}", class: "btn btn-danger pull-right", :"data-toggle" => "tooltip", :"data-title" => "WARNING: This will remove #{@item.user} as the user for #{@item.title}!"}) -%>
         <%- end -%>
         <%= render partial: "items/brief_item", locals: {brief_item: swappable_item, brief_item_counter: index}  %>
       <%- end -%>

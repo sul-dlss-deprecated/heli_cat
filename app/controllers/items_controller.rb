@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   
   after_filter :send_request_email, only: :create
 
+  before_filter :authorize_admin, only: [:swap, :create_swap_record, :do_swap]
   before_filter :authorize_current_user_or_admin, except: [:find, :show, :to_be_swapped, :create]
 
   def create
@@ -87,23 +88,25 @@ class ItemsController < ApplicationController
     redirect_to item_path(item)
   end
 
-  def request_swap_purchase
+  def create_swap_record
     item = Item.find(params[:id])
     if item.purchase_option
       item.clone_for_swap!
-      flash[:success] = "The purchase of a #{item.purchase_option.model} to replace #{item.title} has been initiated."
+      flash[:success] = "#{item.purchase_option.model} has been added to the inventory to replace #{item.title}."
     else
       flash[:error] = "#{item.title} has not had a swap model selected yet!"
+      redirect_to :back
     end
-    redirect_to :back
+    redirect_to item_path(item.swap_item || item)
   end
 
   def do_swap
     if params[:swap_id]
       old_item = Item.find(params[:id])
       new_item = Item.find(params[:swap_id])
-      old_item.destroy
-      flash[:success] = "<strong>#{old_item.title}</strong> removed from the inventory and <strong>#{new_item.title}</strong> swapped in its place."
+      old_item.user = nil
+      old_item.save
+      flash[:success] = "<strong>#{new_item.user}</strong> removed as user of <strong>#{old_item.title}</strong> and <strong>#{new_item.title}</strong> swapped in its place."
       redirect_to edit_item_path(new_item)
     end
   end
