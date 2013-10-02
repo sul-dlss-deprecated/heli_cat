@@ -2,10 +2,13 @@ require "spec_helper"
 require "fixtures/ups_responses"
 include UPSResponses
 def config
-  YAML.load_file("#{Rails.root}/config/UPS.yml")[Rails.env]
+  {"access_license_number" => "ABC", "user_id" => "DEF", "password" => "GEH"}
 end
 
 describe Tracking::UPS do
+  before :each do
+    Tracking::UPS.any_instance.stub(:config).and_return(config)
+  end
   describe "activity" do
     before :all do
       @tracking = Tracking::UPS.new "123456"
@@ -44,7 +47,8 @@ describe Tracking::UPS do
     end
   end
   describe "request_xml" do
-    before :all do
+    # needs to be 'before :each' so we get the any_instance stub
+    before :each do
       @tracking_number = "123456"
       @request_xml = Tracking::UPS.new(@tracking_number).send(:request_xml)
     end
