@@ -43,6 +43,8 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem "capybara"
+  gem "poltergeist"
+  gem "database_cleaner", "< 1.1.0"
 end
 
 # Use ActiveModel has_secure_password

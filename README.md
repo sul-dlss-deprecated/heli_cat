@@ -16,5 +16,5 @@ There are various configuration files that you will want to copy over from examp
 
 You can run the RSpec tests via rake:
 
-    $ bundle exec rake
+    $ bundle exec rake ci
 
