@@ -1,5 +1,5 @@
 require 'tracking/activity'
-require 'tracking/ups'
+require 'tracking/UPS'
 class Tracking
   def self.new item
     raise Tracking::UnknownProvider unless self.known_providers.include?(item.shipping_provider)
