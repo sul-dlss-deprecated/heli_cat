@@ -18,3 +18,5 @@ You can run the RSpec tests via rake:
 
     $ bundle exec rake ci
 
+Javascript tests will be optionally run if you have [PhantomJS](http://phantomjs.org/) installed.
+
