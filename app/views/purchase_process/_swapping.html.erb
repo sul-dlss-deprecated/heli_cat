@@ -23,20 +23,27 @@
   <li>Click the 'Choose Swap Model' link in the sidebar.</li>
   <li>Select the model that you would like to swap the machine for.</li>
 </ol>
-<h4>Initiating the swap purchase (EP)</h4>
+<h4>Swapping the item in the inventory (EP)</h4>
 <ol>
   <li>Find the computer to be swapped in the <%= link_to "inventory", inventory_location_path %> and click on the heading.</li>
   <li>
-    Click the 'Request Swap Purchase' link in the sidebar.
+    Click the 'Create Swap Record' link in the sidebar.
     <ul>
-      <li class="muted">This will create a new item in the inventory in the "To be purchased" stage.</li>
+      <li class="muted">If there is no "Create Swap Record" link in the sidebar that means the user has not selected their swap model.</li>
+      <li class="muted">This will create a new item in the inventory that merges the data from the old and new machines into a record.</li>
     </ul>
   </li>
-</ol>
-<h4>Swapping the computer in the inventory (EP)</h4>
-<ol>
-  <li>Find the computer to be swapped in the <%= link_to "inventory", inventory_location_path %> and click on the heading.</li>
-  <li>Click the "Swap" link in the Options sidebar.</li>
-  <li>Click the "Swap" button next to the inventory item that you are swapping the computer with.</li>
+  <li>
+    Click the "Swap" link in the Options sidebar of the old item in the inventory.
+    <ul>
+      <li class="muted">This will bring up a list of equipment that belongs to that user (excluding the old equipment).</li>
+    </ul>
+  </li>
+  <li>
+    Click the red "Swap" button next to the new item that will replace the current item.
+    <ul>
+      <li class="muted">This will remove the user of the old computer, but it will remain in the invenotry.</li>
+    </ul>
+  </li>
   <li>Add any remaining details about the new computer.</li>
 </ol>
