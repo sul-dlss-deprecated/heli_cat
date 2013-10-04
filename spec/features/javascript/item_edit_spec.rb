@@ -39,19 +39,18 @@ feature "item add/edit form javascript", js: true do
   scenario "should toggle the tracking URL field when a shipping provider is selected" do
     login_as "test-user"
     visit new_item_path
-    find("#item_tracking_url").should be_visible
+    expect(page).to     have_selector("#item_tracking_url", visible: true)
     select "UPS", from: "item_shipping_provider"
-    # weird syntax necessary to get Capybara to wait for the element to dissapear.
     expect(page).not_to have_selector("#item_tracking_url", visible: true)
     select "Select...", from: "item_shipping_provider"
-    find("#item_tracking_url").should be_visible
+    expect(page).to     have_selector("#item_tracking_url", visible: true)
   end
   scenario "should display the Dell Express Service code when Dell is the make" do
     login_as "test-user"
     visit new_item_path
     expect(page).not_to have_selector("#item_express_service_code", visible: true)
     fill_in "item_make", with: "Dell"
-    find("#item_express_service_code").should be_visible
+    expect(page).to     have_selector("#item_express_service_code", visible: true)
     fill_in "item_make", with: "Anything Else"
     expect(page).not_to have_selector("#item_express_service_code", visible: true)
   end
