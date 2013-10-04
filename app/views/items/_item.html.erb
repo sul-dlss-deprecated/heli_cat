@@ -23,6 +23,11 @@
       <dd><%= item.model %></dd>
     <%- end -%>
 
+    <%- unless item.category.blank? -%>
+      <dt>Category:</dt>
+      <dd><%= Item.category_options[item.category] %></dd>
+    <%- end -%>
+
     <%- unless item.barcode.blank? -%>
       <dt>Barcode:</dt>
       <dd><%= item.barcode %></dd>

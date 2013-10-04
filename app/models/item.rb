@@ -92,4 +92,19 @@ class Item < ActiveRecord::Base
     end
     super
   end
+
+  def self.category_options
+    {""                => "Please Select...",
+     "staff_computer"  => "Staff Computer",
+     "staff_monitor"   => "Staff Monitor",
+     "loaner_computer" => "Loaner Computer",
+     "lab_computer"    => "Lab Computer",
+     "lab_monitor"     => "Lab Monitor",
+     "lab_equipment"   => "General Lab Equipment"
+    }
+  end
+
+  def self.categories
+    category_options.to_a.map{ |a| a.reverse }
+  end
 end

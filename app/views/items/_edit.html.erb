@@ -36,6 +36,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label(:swap_cycle_number, "Category:", class: "control-label") %>
+    <div class="controls">
+      <%= f.select(:category, options_for_select(Item.categories, item.category)) %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label(:barcode, "SU Barcode:", class: "control-label") %>
     <div class="controls">
       <%= f.text_field(:barcode, placeholder: "75000000001234") %>

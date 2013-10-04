@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration
       t.string  :user
       t.string  :make
       t.string  :model
+      t.string  :category
       t.string  :barcode
       t.string  :serial
       t.string  :express_service_code # only for Dell computers
