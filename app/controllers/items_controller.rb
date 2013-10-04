@@ -105,6 +105,7 @@ class ItemsController < ApplicationController
       old_item = Item.find(params[:id])
       new_item = Item.find(params[:swap_id])
       old_item.user = nil
+      old_item.category = "loaner_computer"
       old_item.save
       flash[:success] = "<strong>#{new_item.user}</strong> removed as user of <strong>#{old_item.title}</strong> and <strong>#{new_item.title}</strong> swapped in its place."
       redirect_to edit_item_path(new_item)
