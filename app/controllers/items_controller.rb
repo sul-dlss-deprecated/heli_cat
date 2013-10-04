@@ -97,7 +97,7 @@ class ItemsController < ApplicationController
       flash[:error] = "#{item.title} has not had a swap model selected yet!"
       redirect_to :back
     end
-    redirect_to item_path(item.swap_item || item)
+    redirect_to item_path(item || item.swap_item)
   end
 
   def do_swap
