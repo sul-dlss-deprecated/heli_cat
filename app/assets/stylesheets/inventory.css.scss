@@ -55,3 +55,8 @@
 		}
 	}
 }
+.inventory-filters {
+  input[type='text'], select {
+    width: auto;
+  }
+}

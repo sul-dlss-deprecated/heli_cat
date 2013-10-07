@@ -1,37 +1,39 @@
-<h3>
-  <%= pagination_counter(brief_item_counter) %>. <%= link_to("#{brief_item.title}", item_path(brief_item)) %>
-  <%- if !brief_item.purchased -%>
-    <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been purchased."></i>
-  <%- elsif !brief_item.received -%>
-    <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been received."></i>
-  <%- end -%>
-  <i class="icon-display"></i>
-</h3>
-<dl class="dl-horizontal">
-  <%- unless brief_item.location.blank? -%>
-    <dt>Location:</dt>
-    <dd><%= brief_item.location %><%= " (#{brief_item.department})" unless brief_item.department.blank? %></dd>
-  <%- end -%>
+<div class='inventory-item'>
+  <h3>
+    <%= pagination_counter(brief_item_counter) %>. <%= link_to("#{brief_item.title}", item_path(brief_item)) %>
+    <%- if !brief_item.purchased -%>
+      <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been purchased."></i>
+    <%- elsif !brief_item.received -%>
+      <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been received."></i>
+    <%- end -%>
+    <i class="icon-display"></i>
+  </h3>
+  <dl class="dl-horizontal">
+    <%- unless brief_item.location.blank? -%>
+      <dt>Location:</dt>
+      <dd><%= brief_item.location %><%= " (#{brief_item.department})" unless brief_item.department.blank? %></dd>
+    <%- end -%>
 
-  <%- unless brief_item.barcode.blank? -%>
-    <dt>Barcode:</dt>
-    <dd><%= brief_item.barcode %></dd>
-  <%- end -%>
+    <%- unless brief_item.barcode.blank? -%>
+      <dt>Barcode:</dt>
+      <dd><%= brief_item.barcode %></dd>
+    <%- end -%>
 
-  <%- unless brief_item.serial.blank? -%>
-    <dt>Serial:</dt>
-    <dd><%= brief_item.serial %></dd>
-  <%- end -%>
+    <%- unless brief_item.serial.blank? -%>
+      <dt>Serial:</dt>
+      <dd><%= brief_item.serial %></dd>
+    <%- end -%>
 
-  <%- if !brief_item.warranty_end.blank? and brief_item.days_left_in_warranty < 365 -%>
-    <dt>Warranty End Date:</dt>
-    <dd class='warranty <%= warranty_class(brief_item) %>'><span data-toggle="tooltip" data-title="<%= warranty_status_text[warranty_class(brief_item)] %>"><%= brief_item.warranty_end %></span></dd>
-  <%- end -%>
+    <%- if !brief_item.warranty_end.blank? and brief_item.days_left_in_warranty < 365 -%>
+      <dt>Warranty End Date:</dt>
+      <dd class='warranty <%= warranty_class(brief_item) %>'><span data-toggle="tooltip" data-title="<%= warranty_status_text[warranty_class(brief_item)] %>"><%= brief_item.warranty_end %></span></dd>
+    <%- end -%>
 
-  <%- if brief_item.is_trackable? -%>
-    <dt>Track:</dt>
-    <dd data-tracking-container='true'>
-      <%= link_to "See tracking information", track_item_path(brief_item), :"data-toggle" => "tracking" %>
-    </dd>
-  <%- end -%>
-</dl>
+    <%- if brief_item.is_trackable? -%>
+      <dt>Track:</dt>
+      <dd data-tracking-container='true'>
+        <%= link_to "See tracking information", track_item_path(brief_item), :"data-toggle" => "tracking" %>
+      </dd>
+    <%- end -%>
+  </dl>
+</div>

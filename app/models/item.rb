@@ -100,8 +100,20 @@ class Item < ActiveRecord::Base
      "loaner_computer" => "Loaner Computer",
      "lab_computer"    => "Lab Computer",
      "lab_monitor"     => "Lab Monitor",
-     "lab_equipment"   => "General Lab Equipment"
+     "lab_equipment"   => "Other Lab Equipment"
     }
+  end
+
+  def self.category_option_groups
+    [
+      [categories.first.first, [["None", ""]]],
+      ['Staff Equipment',
+        [["All Staff Equipment", "all_staff"], ['Staff Computers','staff_computer'], ["Staff Monitors", "staff_monitor"]]],
+      ['Lab Equipment',
+        [["All Lab Equipment", "all_lab"], ["Lab Computers", "lab_computer"], ["Lab Monitors", "lab_monitor"], ["Other Lab Equipment", "lab_equipment"]]],
+      ['Loaner Equipment',
+        [["Loaner Computers", "loaner_computer"]]]
+    ]
   end
 
   def self.categories

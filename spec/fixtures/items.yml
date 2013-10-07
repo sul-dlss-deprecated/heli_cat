@@ -4,6 +4,7 @@ macbook1:
   model: MacBookPro 15-inch - Retina
   department: Webteam
   location: Meyer 181
+  category: staff_computer
   barcode: "75000000001234"
   serial: ABC123
   purchased: true
@@ -15,8 +16,21 @@ macbook2:
   model: MacBookPro 13-inch
   department: Lyberteam
   location: Meyer 210
+  category: staff_computer
   barcode: "75000000004321"
   serial: XYZ321
+  purchased: true
+  received: true
+
+monitor1:
+  user: jdoe2
+  make: Mac
+  model: 27-inch Thunderbolt
+  department: Webteam
+  location: Meyer 181
+  category: staff_monitor
+  barcode: "75000000001111"
+  serial: MONITOR1
   purchased: true
   received: true
 
@@ -26,6 +40,7 @@ macbook3:
   model: MacBookAir 13-inch
   department: PSM
   location: Meyer 310
+  category: staff_computer
   barcode: "75000000009876"
   serial: CBA123
   purchased: true
@@ -37,6 +52,7 @@ pc1:
   model: Latitude E6530
   department: Lyberteam
   location: Meyer 210
+  category: staff_computer
   barcode: "75000000004352"
   serial: DJQ962
   purchased: true
@@ -48,6 +64,7 @@ not_received:
   model: MacBookPro 13-inch
   department: Webteam
   location: Meyer 181
+  category: staff_computer
   purchased: true
   received: false
 
@@ -57,5 +74,49 @@ not_purchased:
   model: MacBookPro 13-inch
   department: Lyberteam
   location: Meyer 210
+  category: staff_computer
   purchased: false
   received: false
+
+loaner1:
+  make: Mac
+  model: MacBookPro 13-inch
+  location: Meyer 181
+  category: loaner_computer
+  barcode: "75000000007379"
+  serial: LOAN1
+  purchased: true
+  received: true
+
+lab_comp1:
+  make: Mac
+  model: MacBookPro 13-inch
+  department: DPG
+  location: Green 178
+  category: lab_computer
+  barcode: "55000000001234"
+  serial: LABC1
+  purchased: true
+  received: true
+
+lab_monitor1:
+  make: Mac
+  model: 27-inch Thunderbolt
+  department: DPG
+  location: Green 178
+  category: lab_monitor
+  barcode: "55000000001111"
+  serial: LABM1
+  purchased: true
+  received: true
+
+lab_camera1:
+  make: Nikkon
+  model: DS100
+  department: DPG
+  location: Green 178
+  category: lab_equipment
+  barcode: "55000000009375"
+  serial: CAM1
+  purchased: true
+  received: true
