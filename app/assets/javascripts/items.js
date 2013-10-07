@@ -33,41 +33,40 @@ jQuery(document).on("ready page:load", function(){
 		target.attr("value", user);
 		return false;
 	});
-  responsiveCollapseFilterBy();
+  responsiveCollapse();
 });
 jQuery(window).on("resize", function(){
-  responsiveCollapseFilterBy();
+  responsiveCollapse();
 });
 
-function responsiveCollapseFilterBy(){
-	if(jQuery(window).width() <= 767){
-		collapseFilterBy(".responsive-collapse");
-	}else{
-		$(".responsive-collapse [data-toggle='filter-by']").each(function(){
-			$(this).parent().show();
-		});
-		$(".responsive-collapse").each(function(){
-			var collapse_parent = $(this);
-			collapse_parent.off("click", ".filter-by");
-			$(this).data("collapse-processed", false);
-		});
-	}
+function responsiveCollapse(){
+  $("[data-behavior='responsive-collapse-toggle']").each(function(){
+    var toggler = $(this);
+    var target  = $(toggler.data("target"));
+    var indicator = $("i", toggler);
+    do_collapse(toggler);
+    if(jQuery(window).width() < 767){
+      target.hide();
+      indicator.attr("class", "icon-plus");
+    }else{
+      target.show()
+      indicator.attr("class", "icon-minus");
+    }
+  });
 }
-
-function collapseFilterBy(selector){
-	if(!$(selector).data("collapse-processed")){
-		// Handle embeded Filter By toggles
-		$(selector + " [data-toggle='filter-by']").each(function(){
-			$(this).parent().hide();
-		});
-		$(selector).each(function(){
-			var collapse_parent = $(this);
-			collapse_parent.on("click", ".filter-by", function(){
-				$("[data-toggle='filter-by']", collapse_parent).each(function(){
-					$(this).parent().slideToggle();
-				});
-			});
-			$(this).data("collapse-processed", true);
-		});
-	}
+function do_collapse(toggler){
+  var target =    $(toggler.data("target"));
+  var indicator = $("i", toggler);
+  if(!toggler.data('process-toggle')){
+    toggler.on('click', function(){
+      target.slideToggle('slow');
+      toggle_indicator_class(indicator);
+    });
+  }
+  toggler.data('process-toggle', true);
+}
+function toggle_indicator_class(indicator){
+  indicator.attr("class",
+    indicator.attr("class") == "icon-plus" ? "icon-minus" : "icon-plus"
+  );
 }

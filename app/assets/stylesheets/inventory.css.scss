@@ -1,4 +1,13 @@
 .sidebar-navigation {
+  .collapse-toggle {
+    float: right;
+    margin-top: -3px;
+  }
+  @media (max-width: 767px) {
+    .responsive-collapse-nav {
+      display: none;
+    }
+  }
 	.nav {
 		li {
 			&.highlight {
@@ -7,11 +16,6 @@
 				}
 			}
 		}
-	}
-}
-@media (max-width: 767px) {
-	.filter-by {
-		cursor: pointer;
 	}
 }
 .purchase_option {

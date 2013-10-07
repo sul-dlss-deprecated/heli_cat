@@ -1,6 +1,9 @@
 <div class="span3">
-  <div class="well sidebar-navigation responsive-collapse">
-    <ul class="nav nav-list">
+  <div class="well sidebar-navigation">
+    <span class='btn btn-small visible-phone collapse-toggle' data-behavior='responsive-collapse-toggle' data-target='.responsive-collapse-nav'>
+      <i class="icon-plus"></i>
+    </span>
+    <ul class="nav nav-list responsive-collapse-nav">
       <%= render_item_options %>
       <%- if current_user.admin? -%>
         <li class="nav-header">Admin:</li>

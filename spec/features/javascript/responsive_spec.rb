@@ -6,11 +6,36 @@ feature "Responsive Design", js: true do
     item = items(:macbook1)
     login_as_admin
     visit edit_item_path item
-    expect(page).to     have_selector("[data-toggle='filter-by']", visible: true)
+    expect(page).to     have_selector("ul.responsive-collapse-nav", visible: true)
     page.driver.resize("766", "500")
-    expect(page).not_to have_selector("[data-toggle='filter-by']", visible: true)
+    expect(page).not_to have_selector("ul.responsive-collapse-nav", visible: true)
     page.driver.resize("1024", "500")
-    expect(page).to     have_selector("[data-toggle='filter-by']", visible: true)
+    expect(page).to     have_selector("ul.responsive-collapse-nav", visible: true)
+  end
+  scenario "Options sidebar should have functional toggle button on smaller screens" do
+    item = items(:macbook1)
+    login_as_admin
+
+    visit edit_item_path item
+    expect(page).to     have_selector("ul.responsive-collapse-nav", visible: true)
+    expect(page).not_to have_selector("[data-behavior='responsive-collapse-toggle']", visible: true)
+
+    page.driver.resize("766", "500")
+    expect(page).not_to have_selector("ul.responsive-collapse-nav", visible: true)
+    expect(page).to     have_selector("[data-behavior='responsive-collapse-toggle']", visible: true)
+    expect(page).to     have_selector("[data-behavior='responsive-collapse-toggle'] i.icon-plus")
+
+    find("[data-behavior='responsive-collapse-toggle']").click
+    expect(page).to     have_selector("ul.responsive-collapse-nav", visible: true)
+    expect(page).to     have_selector("[data-behavior='responsive-collapse-toggle'] i.icon-minus")
+
+    find("[data-behavior='responsive-collapse-toggle']").click
+    expect(page).not_to have_selector("ul.responsive-collapse-nav", visible: true)
+
+    page.driver.resize("1024", "500")
+    expect(page).to     have_selector("ul.responsive-collapse-nav", visible: true)
+    expect(page).not_to have_selector("[data-behavior='responsive-collapse-toggle'] i.icon-minus", visible: true)
+    expect(page).not_to have_selector("[data-behavior='responsive-collapse-toggle'] i.icon-plus", visible: true)
   end
   scenario "should hide the purcahse option number heading" do
     purchase_a_mac
