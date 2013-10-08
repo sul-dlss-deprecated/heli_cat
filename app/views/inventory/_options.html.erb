@@ -1,8 +1,10 @@
 <%= form_tag("", method: "GET", class: "form-inline inventory-filters") do %>
-  <div class="input-append">
+  <span class="input-append value-filter">
     <%= text_field_tag :value, params["value"], :"data-typeahead-options" => @options.map{|option| option.send(column) }.join(","), :placeholder => @options.first.try(:send, column)  %>
     <%= button_tag "Filter #{params[:by].capitalize}", class: "btn" %>
-  </div>
-  <%= select_tag :category, grouped_options_for_select(Item.category_option_groups, params["category"]) %>
-  <%= button_tag "Filter Category", class: "btn" %>
+  </span>
+  <span class="category-select">
+    <%= select_tag :category, grouped_options_for_select(Item.category_option_groups, params["category"]) %>
+    <%= button_tag "Filter Category", class: "btn" %>
+  </span>
 <%- end -%>

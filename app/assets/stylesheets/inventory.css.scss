@@ -60,7 +60,18 @@
 	}
 }
 .inventory-filters {
+  @media (max-width: 767px) {
+    text-align: center;
+  }
   input[type='text'], select {
     width: auto;
+  }
+  @media (max-width: 980px) {
+    .value-filter, .category-select {
+      display: block;
+    }
+    .category-select {
+      margin-top: 5px;
+    }
   }
 }
