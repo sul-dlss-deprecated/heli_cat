@@ -4,6 +4,9 @@ class Item < ActiveRecord::Base
   max_paginates_per HeliCat::Application.config.per_page
 
   has_one :purchase_option
+
+  validates_uniqueness_of :barcode, allow_nil: true, allow_blank: true
+
   validates :swap_cycle, format: {with: /|\d{1}-years|months|/, message: "Swap cycle not valid"}
 
   validates :swap_cycle_number, inclusion: { in: [nil, ""].concat(("1"..."7").to_a),

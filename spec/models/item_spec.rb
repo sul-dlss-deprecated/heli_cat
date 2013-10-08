@@ -71,6 +71,19 @@ describe Item do
       expect(item.swap_cycle).to eq "3-years"
     end
     describe "validations" do
+      it "should not allow two items w/ the same barcode to exist" do
+        -> { Item.create!(barcode: "1234")
+             Item.create!(barcode: "1234")
+           }.should raise_error ActiveRecord::RecordInvalid
+      end
+      it "should allow items w/ blank or nil barcodes to exist" do
+        -> { Item.create!(barcode: "")
+             Item.create!(barcode: "")
+           }.should_not raise_error
+        -> { Item.create!(barcode: nil)
+             Item.create!(barcode: nil)
+           }.should_not raise_error
+      end
       it "should not allow a bad value in the swap_cycle_number" do
         -> {Item.create!(swap_cycle_number: "10")}.should raise_error ActiveRecord::RecordInvalid
       end
