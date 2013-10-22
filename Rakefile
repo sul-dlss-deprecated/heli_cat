@@ -11,12 +11,13 @@ task :ci do
   Rake::Task["spec_with_js"].invoke
 end
 begin
+  require 'rspec-rails'
   RSpec::Core::RakeTask.new(:spec_with_js) do |t|
     if `which phantomjs` == ""
       t.rspec_opts = "--tag ~js"
     end
   end
-rescue
+rescue LoadError
   task :spec_with_js do
     Rails.logger.info "RSpec not installed!"
   end
