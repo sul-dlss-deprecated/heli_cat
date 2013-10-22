@@ -9,8 +9,6 @@
 
 # Ignore ruby version management files
 .rvmrc
-.ruby-version
-.ruby-gemset
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
