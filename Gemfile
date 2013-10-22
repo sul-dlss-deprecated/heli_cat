@@ -40,6 +40,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "therubyracer", group: :assets
+
 group :development, :test do
   gem "rspec-rails"
   gem "capybara"
