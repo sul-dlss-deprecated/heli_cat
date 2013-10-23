@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    User.new(request.env["WEBAUTH_USER"] || "not-a-real-user")
+    User.new(request.env["WEBAUTH_USER"])
   end
   helper_method :current_user
 
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     unless current_user.admin?
       if params['id']
         item = Item.find(params['id'])
-        unless item.user == current_user.id
+        unless item.user && (item.user == current_user.id)
           raise User::NotAuthorized
         end
       end

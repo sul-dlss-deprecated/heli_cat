@@ -1,7 +1,11 @@
 class User
   attr_reader :id
-  def initialize(id)
+  def initialize id
     @id = id
+  end
+  def self.new id
+    return NullUser.new unless id
+    super id
   end
   def equipment
     @equipment ||= Item.where(:user => @id)
@@ -16,4 +20,9 @@ class User
       super(msg)
     end
   end
+end
+class NullUser
+  def id; nil; end
+  def equipment; []; end
+  def admin?; false; end
 end
