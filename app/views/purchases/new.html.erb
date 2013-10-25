@@ -1,4 +1,4 @@
-<%- unless current_user.id or @pending_purchases.blank? -%>
+<%- if current_user.id and !@pending_purchases.blank? -%>
   <div class="alert">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     You currently have <%= pluralize @pending_purchases.length, "pending purchase" %>.  Please <%= link_to("review them", find_user_path(current_user.id, received: "f")) %> before ordering any additional equipment.
