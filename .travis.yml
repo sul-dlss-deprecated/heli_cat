@@ -1,4 +1,7 @@
 language: ruby
+before_install: 
+  - mv .travis.Gemfile Gemfile
+  - mv .travis.Gemfile.lock Gemfile.lock
 rvm:
   - "2.0.0"
 notifications:
