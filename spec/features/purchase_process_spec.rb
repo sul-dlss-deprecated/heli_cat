@@ -34,6 +34,15 @@ feature "Purchasing New Equpment" do
     expect(page).to_not have_content(purchase_options(:inactive).model)
     expect(page).to_not have_content(purchase_options(:inactive).description)
   end
+  it "should inform a user of any pending purchase requests for them" do
+    login_as "item-user"
+    visit new_purchase_path
+    expect(page).not_to have_content("You currently have 1 pending purchase.")
+    item = Item.create( user: "item-user", received: false )
+
+    visit new_purchase_path
+    expect(page).to     have_content("You currently have 1 pending purchase.")
+  end
   it "should autofill the new item form when a purchase option is selected" do
     purchase_a_mac
     retina = purchase_options(:retina)
