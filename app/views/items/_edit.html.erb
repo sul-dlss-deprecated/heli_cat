@@ -126,25 +126,32 @@
       <%= f.text_area(:notes) %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label(:purchased, "Purchased?", class: "control-label") %>
-    <div class="controls">
-      <%= f.check_box(:purchased) %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label(:received, "Received?", class: "control-label") %>
-    <div class="controls">
-      <%= f.check_box(:received) %>
-    </div>
-  </div>
-  <%- if params[:action] == "new" -%>
+  <%- if current_user.admin? -%>
     <div class="control-group">
-      <%= label_tag(:send_email, "Send email?", class: "control-label") %>
+      <%= f.label(:purchased, "Purchased?", class: "control-label") %>
       <div class="controls">
-        <%= check_box_tag(:send_email) %>
+        <%= f.check_box(:purchased) %>
       </div>
     </div>
+    <div class="control-group">
+      <%= f.label(:received, "Received?", class: "control-label") %>
+      <div class="controls">
+        <%= f.check_box(:received) %>
+      </div>
+    </div>
+  <%- end -%>
+  <%- if params[:action] == "new" -%>
+    <%- if current_user.admin? -%>
+      <div class="control-group">
+        <%= label_tag(:send_email, "Send email?", class: "control-label") %>
+        <div class="controls">
+          <%= check_box_tag(:send_email) %>
+        </div>
+      </div>
+    <%- else -%>
+      <%= hidden_field_tag(:send_email, true) %>
+    <%- end -%>
+
     <%- if params[:purchase_option_id] -%>
       <%= hidden_field_tag(:purchase_option_id, params[:purchase_option_id]) %>
     <%- end -%>

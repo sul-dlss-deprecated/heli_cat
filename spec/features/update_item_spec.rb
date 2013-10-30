@@ -38,4 +38,18 @@ feature "Updating an item in the inventory" do
     expect(page).to have_content("#{item.title} was succesfully updated!")
     find_field("item_location").value.should eq new_location
   end
+  scenario "should present admins with purchased/received options" do
+    item = items(:macbook2)
+    login_as_admin
+    visit edit_item_path(item)
+    expect(page).to have_selector("input#item_purchased[type='checkbox']")
+    expect(page).to have_selector("input#item_received[type='checkbox']")
+  end
+  scenario "should not present non-admins with purchased/received options" do
+    item = items(:macbook2)
+    login_as item.user
+    visit edit_item_path(item)
+    expect(page).not_to have_selector("input#item_purchased[type='checkbox']")
+    expect(page).not_to have_selector("input#item_received[type='checkbox']")
+  end
 end
