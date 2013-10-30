@@ -1,5 +1,5 @@
 class PurchaseRequest < ActionMailer::Base
-  default from: "no-reply@heli-cat.stanford.edu"
+  default from: "no-reply@helicat.stanford.edu"
 
   def new_purchase(item, current_user, purchase_option_id=nil)
     @host = host
@@ -17,7 +17,7 @@ class PurchaseRequest < ActionMailer::Base
 
   def host
     if Rails.env.production?
-      "heli-cat.stanford.edu"
+      "helicat.stanford.edu"
     else
       "localhost:3000"
     end
