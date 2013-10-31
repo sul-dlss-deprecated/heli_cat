@@ -33,6 +33,7 @@ jQuery(document).on("ready page:load", function(){
 		target.attr("value", user);
 		return false;
 	});
+  check_barcode();
   responsiveCollapse();
 });
 jQuery(window).on("resize", function(){
@@ -69,4 +70,38 @@ function toggle_indicator_class(indicator){
   indicator.attr("class",
     indicator.attr("class") == "icon-plus" ? "icon-minus" : "icon-plus"
   );
+}
+function check_barcode() {
+  var indicator_class = "[data-barcode-checker-indicator]";
+  $(indicator_class).each(function(){
+    update_barcode_checker_indicator_tooltip($(this));
+  });
+  $("[data-barcode-checker]").each(function(){
+    var target = $(this);
+    target.on('keyup', function(){
+      var indicator = target.next(indicator_class);
+      var value = $(this).val();
+      if ( value.length == 14 ) {
+        $.ajax(target.attr("data-barcode-checker-path") + "?barcode=" + value).done(function(data){
+          if ( data ) {
+            indicator.attr("class", "icon-remove");
+          }else{
+            indicator.attr("class", "icon-ok");
+          }
+          update_barcode_checker_indicator_tooltip(indicator);
+        });
+      }else{
+        indicator.attr("class", "icon-remove");
+        update_barcode_checker_indicator_tooltip(indicator);
+      }
+    });
+  });
+}
+function update_barcode_checker_indicator_tooltip(indicator){
+  indicator.tooltip('destroy');
+  if (indicator.hasClass("icon-ok")) {
+    indicator.tooltip({'title': 'Valid Barcode!'});
+  } else if ( indicator.hasClass("icon-remove")) {
+    indicator.tooltip({'title': 'This barcode is either invalid or already taken.'});
+  }
 }

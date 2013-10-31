@@ -3,6 +3,13 @@
 <%- end -%>
 <%= form_for(item, html: {class: "form-horizontal item-form"}) do |f| %>
   <div class="control-group">
+    <%= f.label(:barcode, "SU Barcode:", class: "control-label") %>
+    <div class="controls">
+      <%= f.text_field(:barcode, :placeholder => "75000000001234", :"data-barcode-checker" => true, :"data-barcode-checker-path" => barcode_exists_path(id: item.id)) %>
+      <i class="icon-<%= item.barcode ? 'ok' : 'remove' %>" data-barcode-checker-indicator='true'></i>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label(:user, "User:", class: "control-label") %>
     <div class="controls">
       <%= f.text_field(:user, placeholder: "SUNet ID") %>
@@ -39,12 +46,6 @@
     <%= f.label(:swap_cycle_number, "Category:", class: "control-label") %>
     <div class="controls">
       <%= f.select(:category, options_for_select(Item.categories, item.category)) %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label(:barcode, "SU Barcode:", class: "control-label") %>
-    <div class="controls">
-      <%= f.text_field(:barcode, placeholder: "75000000001234") %>
     </div>
   </div>
   <div class="control-group">

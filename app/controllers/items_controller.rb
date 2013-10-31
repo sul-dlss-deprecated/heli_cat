@@ -121,7 +121,27 @@ class ItemsController < ApplicationController
     render json: item.stored_tracking_information
   end
 
+  def barcode_exists
+    render json: barcode_exists?
+  end
+
   private
+
+  def barcode_exists?
+    if current_item_barcode == params[:barcode]
+      false
+    else
+      Item.where(barcode: params[:barcode]).length > 0
+    end
+  end
+
+  def current_item_barcode
+    if params[:id]
+      Item.find(params[:id]).barcode
+    else
+      ""
+    end
+  end
 
   def send_request_email
     if params[:send_email]
