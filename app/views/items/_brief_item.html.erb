@@ -2,11 +2,10 @@
   <h3>
     <%= pagination_counter(brief_item_counter) %>. <%= link_to("#{brief_item.title}", item_path(brief_item)) %>
     <%- if !brief_item.purchased -%>
-      <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been purchased."></i>
+      <i class="icon-time" data-toggle="tooltip" title="This item has not yet been purchased."></i>
     <%- elsif !brief_item.received -%>
-      <i class="icon-warning-sign" data-toggle="tooltip" title="WARNING: This item has not yet been received."></i>
+      <i class="icon-time" data-toggle="tooltip" title="This item has not yet been received."></i>
     <%- end -%>
-    <i class="icon-display"></i>
   </h3>
   <dl class="dl-horizontal">
     <%- unless brief_item.location.blank? -%>
