@@ -27,7 +27,19 @@
 		width: 165px;
 	}
 }
-
+.other-items {
+  margin-top: -15px;
+  .arrow {
+    display: inline-block;
+    height: 10px;
+    width: 15px;
+    border-left: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+  }
+  .other-text {
+    margin-bottom: -2px;
+  }
+}
 .warranty {
 	&.expired {
 		color: red;

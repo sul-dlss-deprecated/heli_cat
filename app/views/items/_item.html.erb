@@ -2,6 +2,14 @@
   <h3>
     <%= link_to_unless((params[:controller] == "items" and params[:action] == "show"), "#{item.title}", item_path(item)) -%>
   </h3>
+  <%- unless item.user.blank? or item.user == current_user.id -%>
+    <div class='other-items'>
+      <span class='arrow'></span>
+      <span class='other-text'>
+        <%= link_to "other items owned by this user", find_user_path(item.user) %>
+      </span>
+    </div>
+  <%- end -%>
   <dl class="dl-horizontal">
     <%- unless item.department -%>
       <dt>Department:</dt>
