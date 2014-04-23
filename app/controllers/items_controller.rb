@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   after_filter :send_request_email, only: :create
 
   before_filter :authorize_admin, only: [:swap, :create_swap_record, :do_swap]
-  before_filter :authorize_current_user_or_admin, except: [:find, :show, :to_be_swapped, :create]
+  before_filter :authorize_current_user_or_admin, except: [:find, :show, :to_be_swapped, :create, :track]
 
   def create
     @item = Item.create(item_create_params)

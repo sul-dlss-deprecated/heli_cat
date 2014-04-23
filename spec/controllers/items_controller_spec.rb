@@ -10,6 +10,11 @@ describe ItemsController do
         get :find
         response.should be_success
       end
+      it "should be able to use the tracking API" do
+        item = Item.create(shipping_provider: "UPS")
+        get :track, id: item.id
+        response.should be_success
+      end
       it "should not protect the show action" do
         get :show, id: Item.create.id
         response.should be_success
