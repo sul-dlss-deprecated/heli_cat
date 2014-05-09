@@ -6,4 +6,4 @@ rvm:
   - "2.0.0"
 notifications:
   email: false
-script: "rake ci"
+script: "bundle exec rake ci"
