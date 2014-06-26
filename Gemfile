@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'http://sul-gems.stanford.edu'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -52,14 +51,12 @@ end
 
 # gems necessary for capistrano deployment
 group :deployment do
-  gem 'capistrano', "< 3.0.0"
-  gem 'capistrano-ext'
-  gem 'rvm-capistrano'
-  gem 'lyberteam-devel', '>=1.0.0'
-  gem 'lyberteam-gems-devel', '>=1.0.0'
-  gem 'net-ssh-krb'
+  gem 'capistrano', "~> 3.0"
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'lyberteam-capistrano-devel'
 end
-gem 'gssapi', :git => 'https://github.com/cbeer/gssapi.git'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
