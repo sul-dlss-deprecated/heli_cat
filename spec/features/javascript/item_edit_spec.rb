@@ -4,37 +4,37 @@ feature "item add/edit form javascript", js: true do
   scenario "should put the ID of the current user in the user field" do
     login_as "test-user"
     visit new_item_path
-    find_field("item_user").value.should be_blank
+    expect(find_field("item_user").value).to be_blank
     click_link "[me]"
-    find_field("item_user").value.should eq "test-user"
+    expect(find_field("item_user").value).to eq "test-user"
   end
   scenario "should check the Purchased? checkbox when the Received? checkbox is checked" do
     login_as_admin
     visit new_item_path
-    find("#item_received").should_not be_checked
-    find("#item_purchased").should_not be_checked
+    expect(find("#item_received")).to_not be_checked
+    expect(find("#item_purchased")).to_not be_checked
     check "Received?"
-    find("#item_received").should be_checked
-    find("#item_purchased").should be_checked
+    expect(find("#item_received")).to be_checked
+    expect(find("#item_purchased")).to be_checked
   end
   scenario "should uncheck the Received? checkbox when the Purchase? checkbox is unchecked" do
     login_as_admin
     visit new_item_path
-    find("#item_received").should_not be_checked
-    find("#item_purchased").should_not be_checked
+    expect(find("#item_received")).to_not be_checked
+    expect(find("#item_purchased")).to_not be_checked
     check "Received?"
-    find("#item_received").should be_checked
-    find("#item_purchased").should be_checked
+    expect(find("#item_received")).to be_checked
+    expect(find("#item_purchased")).to be_checked
     uncheck "Purchased?"
-    find("#item_received").should_not be_checked
-    find("#item_purchased").should_not be_checked
+    expect(find("#item_received")).to_not be_checked
+    expect(find("#item_purchased")).to_not be_checked
   end
   scenario "should pad the barcode with eight zeros once 2 digits are entered" do
     login_as "test-user"
     visit new_item_path
-    find("#item_barcode").value.should be_blank
+    expect(find("#item_barcode").value).to be_blank
     fill_in "item_barcode", with: "12"
-    find("#item_barcode").value.should eq "1200000000"
+    expect(find("#item_barcode").value).to eq "1200000000"
   end
   scenario "should toggle the tracking URL field when a shipping provider is selected" do
     login_as "test-user"

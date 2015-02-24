@@ -15,32 +15,32 @@ describe Tracking::Activity do
   end
   describe "initialization" do
     it "should handle the intended block style syntax" do
-      @block_tracking.location.should    == "LOCATION"
-      @block_tracking.description.should == "DESCRIPTION"
-      @block_tracking.date.should        == Date.parse("2013-09-23")
-      @block_tracking.time.should        == "8:22am"
+      expect(@block_tracking.location).to    eq "LOCATION"
+      expect(@block_tracking.description).to eq "DESCRIPTION"
+      expect(@block_tracking.date).to        eq Date.parse("2013-09-23")
+      expect(@block_tracking.time).to        eq "8:22am"
     end
     it "should handle the intended hash style syntax" do
-      @hash_tracking.location.should    == "LOCATION"
-      @hash_tracking.description.should == "DESCRIPTION"
-      @hash_tracking.date.should        == Date.parse("2013-09-23")
-      @hash_tracking.time.should        == "8:22am"
+      expect(@hash_tracking.location).to    eq "LOCATION"
+      expect(@hash_tracking.description).to eq "DESCRIPTION"
+      expect(@hash_tracking.date).to        eq Date.parse("2013-09-23")
+      expect(@hash_tracking.time).to        eq "8:22am"
     end
     it "should raise an error if a bad attribute is passed in the block syntax" do
-      -> { Tracking::Activity.new do
-             not_an_attribute "Error"
-           end }.should raise_error NoMethodError
+      expect(-> { Tracking::Activity.new do
+                    not_an_attribute "Error"
+                  end }).to raise_error NoMethodError
     end
     it "should raise an error if a bad attribute is passed in the hash syntax" do
-      -> { Tracking::Activity.new(not_an_attribute: "Error") }.should raise_error NoMethodError
+      expect(-> { Tracking::Activity.new(not_an_attribute: "Error") }).to raise_error NoMethodError
     end
   end
   describe "to_s" do
     it "should respond to #to_s with the constructed activity" do
-      @block_tracking.to_s.should == "2013-09-23 (8:22am): DESCRIPTION @ LOCATION"
+      expect(@block_tracking.to_s).to eq "2013-09-23 (8:22am): DESCRIPTION @ LOCATION"
     end
     it "should have the same #to_s regardless of initialization method" do
-      @hash_tracking.to_s.should == @block_tracking.to_s
+      expect(@hash_tracking.to_s).to eq @block_tracking.to_s
     end
   end
 end

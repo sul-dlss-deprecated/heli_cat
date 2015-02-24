@@ -60,8 +60,12 @@ class Item < ActiveRecord::Base
   end
 
   def tracking_information
-    @tracking_information ||= Tracking.new(self).activity.map do |activity|
-      activity.to_s
+    @tracking_information ||= begin
+      Tracking.new(self).activity.map do |activity|
+        activity.to_s
+      end
+    rescue
+      ["No tracking available."]
     end
   end
 

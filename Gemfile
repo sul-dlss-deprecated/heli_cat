@@ -1,23 +1,19 @@
 source 'https://rubygems.org'
-source 'http://sul-gems.stanford.edu'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
-gem 'sprockets', '2.11.0'
+gem 'rails', '4.2.0'
+gem 'sprockets'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.1'
+gem 'sass-rails'
 
 # Include bootsrap-sass assets
 gem 'bootstrap-sass', '~> 2.3.2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -52,14 +48,12 @@ end
 
 # gems necessary for capistrano deployment
 group :deployment do
-  gem 'capistrano', "< 3.0.0"
-  gem 'capistrano-ext'
-  gem 'rvm-capistrano'
-  gem 'lyberteam-devel', '>=1.0.0'
-  gem 'lyberteam-gems-devel', '>=1.0.0'
-  gem 'net-ssh-krb'
+  gem 'capistrano', "~> 3.0"
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'lyberteam-capistrano-devel'
 end
-gem 'gssapi', :git => 'https://github.com/cbeer/gssapi.git'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -49,7 +49,7 @@ feature "Purchasing New Equpment" do
     find("#option-#{retina.id}").click
 
     expect(page).to have_content("Add new item into the Inventory")
-    find_field("item_make").value.should eq retina.make
-    find_field("item_model").value.should eq retina.model
+    expect(find_field("item_make").value).to eq retina.make
+    expect(find_field("item_model").value).to eq retina.model
   end
 end

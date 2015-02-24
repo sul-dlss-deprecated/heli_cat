@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    User.new(request.env["WEBAUTH_USER"])
+    User.new('jkeck')
+    #User.new(request.env["WEBAUTH_USER"])
   end
   helper_method :current_user
 
