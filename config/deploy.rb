@@ -24,7 +24,7 @@ set :deploy_to, '/home/helicat/helicat-app'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{db/production.sqlite3 config/database.yml config/dlss_ep_email config/UPS.yml config/admins.yml}
+set :linked_files, %w{db/production.sqlite3 config/database.yml config/dlss_ep_email config/UPS.yml config/admins.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log lib/course_work_xml tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

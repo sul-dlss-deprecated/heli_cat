@@ -7,54 +7,54 @@ describe Item do
     end
     it "should add an Item" do
       item = Item.create(user: "admin-user", make: "Mac", model: "13-inch MacBook Pro", purchase_option: @purchase_option)
-      -> {item.clone_for_swap!}.should change{Item.count}.by(1)
+      expect(-> {item.clone_for_swap!}).to change{Item.count}.by(1)
     end
     it "should update the swap_item of the original item" do
       item = Item.create(user: "admin-user", make: "Mac", model: "13-inch MacBook Pro", purchase_option: @purchase_option)
-      item.swap_item.should be_nil
+      expect(item.swap_item).to be_nil
       item.clone_for_swap!
-      item.swap_item.should_not be_nil
+      expect(item.swap_item).to_not be_nil
     end
     it "should apply the specified data from the purchase option and origina litem ot the clone" do
       item = Item.create(user: "admin-user", department: "Webteam", location: "Meyer 182", make: "Mac", model: "13-inch MacBook Pro", purchase_option: @purchase_option)
       item.clone_for_swap!
       swap_item = Item.find(item.swap_item)
-      swap_item.user.should == "admin-user"
-      swap_item.department.should == "Webteam"
-      swap_item.location.should == "Meyer 182"
-      swap_item.make.should == "Mac"
-      swap_item.model.should == "15-inch MacBook Pro"
+      expect(swap_item.user).to eq "admin-user"
+      expect(swap_item.department).to eq "Webteam"
+      expect(swap_item.location).to eq "Meyer 182"
+      expect(swap_item.make).to eq "Mac"
+      expect(swap_item.model).to eq "15-inch MacBook Pro"
     end
   end
   describe "title" do
     it "should return the user and model when available" do
-      Item.create(user: "jdoe",
+      expect(Item.create(user: "jdoe",
                   model: "MacBookPro 15-inch - Retina",
                   make: "Mac",
                   department: "Webteam",
-                  location: "Meyer 210").title.should == "jdoe's MacBookPro 15-inch - Retina"
+                  location: "Meyer 210").title).to eq "jdoe's MacBookPro 15-inch - Retina"
     end
     it "should return the user and make if available" do
-      Item.create(user: "jdoe", make: "Mac").title.should == "jdoe's Mac"
+      expect(Item.create(user: "jdoe", make: "Mac").title).to eq "jdoe's Mac"
     end
     it "should return the model and department if available" do
-      Item.create(model: "MacBookPro 17-inch", department: "Webteam").title.should == "Webteam's MacBookPro 17-inch"
+      expect(Item.create(model: "MacBookPro 17-inch", department: "Webteam").title).to eq "Webteam's MacBookPro 17-inch"
     end
     it "should return the model and location if available" do
-      Item.create(model: "MacBookPro 17-inch", location: "Meyer 210").title.should == "MacBookPro 17-inch in Meyer 210"
+      expect(Item.create(model: "MacBookPro 17-inch", location: "Meyer 210").title).to eq "MacBookPro 17-inch in Meyer 210"
     end
     it "should return the make and location if available" do
-      Item.create(make: "Dell", location: "Meyer 210").title.should == "Dell in Meyer 210"
+      expect(Item.create(make: "Dell", location: "Meyer 210").title).to eq "Dell in Meyer 210"
     end
     it "should return the model if it's the only thing available" do
-      Item.create(model: "MacBookPro 17-inch").title.should == "MacBookPro 17-inch"
+      expect(Item.create(model: "MacBookPro 17-inch").title).to eq "MacBookPro 17-inch"
     end
     it "should return the make if it's the only thing available" do
-      Item.create(make: "Dell").title.should == "Dell"
+      expect(Item.create(make: "Dell").title).to eq "Dell"
     end
     it "should return a friendly string if no meta-data is available" do
       item = Item.create
-      item.title.should == "Inventory item #{item.id}"
+      expect(item.title).to eq "Inventory item #{item.id}"
     end
   end
   describe "swap_cycle" do
@@ -72,27 +72,27 @@ describe Item do
     end
     describe "validations" do
       it "should not allow two items w/ the same barcode to exist" do
-        -> { Item.create!(barcode: "1234")
+        expect(-> { Item.create!(barcode: "1234")
              Item.create!(barcode: "1234")
-           }.should raise_error ActiveRecord::RecordInvalid
+           }).to raise_error ActiveRecord::RecordInvalid
       end
       it "should allow items w/ blank or nil barcodes to exist" do
-        -> { Item.create!(barcode: "")
+        expect(-> { Item.create!(barcode: "")
              Item.create!(barcode: "")
-           }.should_not raise_error
-        -> { Item.create!(barcode: nil)
+           }).to_not raise_error
+        expect(-> { Item.create!(barcode: nil)
              Item.create!(barcode: nil)
-           }.should_not raise_error
+           }).to_not raise_error
       end
       it "should not allow a bad value in the swap_cycle_number" do
-        -> {Item.create!(swap_cycle_number: "10")}.should raise_error ActiveRecord::RecordInvalid
+        expect(-> {Item.create!(swap_cycle_number: "10")}).to raise_error ActiveRecord::RecordInvalid
       end
       it "should not allow a bad value in the swap_cycle_span" do
-        -> {Item.create!(swap_cycle_span: "centuries")}.should raise_error ActiveRecord::RecordInvalid
+        expect(-> {Item.create!(swap_cycle_span: "centuries")}).to raise_error ActiveRecord::RecordInvalid
       end
       it "should not allow badly formed swap_cycles" do
-        -> {Item.create!(swap_cycle: "100-years")}.should raise_error ActiveRecord::RecordInvalid
-        -> {Item.create!(swap_cycle: "5-centuries")}.should raise_error ActiveRecord::RecordInvalid
+        expect(-> {Item.create!(swap_cycle: "100-years")}).to raise_error ActiveRecord::RecordInvalid
+        expect(-> {Item.create!(swap_cycle: "5-centuries")}).to raise_error ActiveRecord::RecordInvalid
       end
     end
   end

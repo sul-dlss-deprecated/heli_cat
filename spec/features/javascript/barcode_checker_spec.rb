@@ -11,7 +11,7 @@ feature "barcode uniqueness ajax requests", js: true do
     expect(page).to     have_selector("i.icon-remove")
 
     fill_in :item_barcode, with: "121234"
-    find("#item_barcode").value.should eq "12000000001234"
+    expect(find("#item_barcode").value).to eq "12000000001234"
 
     # status indicator should be the checkmark
     expect(page).to     have_selector("i.icon-ok")
@@ -27,7 +27,7 @@ feature "barcode uniqueness ajax requests", js: true do
 
     barcode = items(:macbook1).barcode
     fill_in :item_barcode, with: "#{barcode[0..1]}#{barcode[-4,4]}"
-    find("#item_barcode").value.should eq barcode
+    expect(find("#item_barcode").value).to eq barcode
 
     # status indicator should be 'X'
     expect(page).not_to have_selector("i.icon-ok",     visible: true)
@@ -42,7 +42,7 @@ feature "barcode uniqueness ajax requests", js: true do
     expect(page).not_to have_selector("i.icon-remove")
   
     fill_in :item_barcode, with: "121234"
-    find("#item_barcode").value.should eq "12000000001234"
+    expect(find("#item_barcode").value).to eq "12000000001234"
 
     # status indicator should be the checkmark
     expect(page).to     have_selector("i.icon-ok",     visible: true)
@@ -58,7 +58,7 @@ feature "barcode uniqueness ajax requests", js: true do
 
     barcode = items(:macbook1).barcode
     fill_in :item_barcode, with: "#{barcode[0..1]}#{barcode[-4,4]}"
-    find("#item_barcode").value.should eq barcode
+    expect(find("#item_barcode").value).to eq barcode
 
     # status indicator should be 'X'
     expect(page).not_to have_selector("i.icon-ok",     visible: true)
@@ -70,7 +70,7 @@ feature "barcode uniqueness ajax requests", js: true do
     visit edit_item_path(item)
 
     fill_in :item_barcode, with: "#{item.barcode[0..1]}#{item.barcode[-4,4]}"
-    find("#item_barcode").value.should eq item.barcode
+    expect(find("#item_barcode").value).to eq item.barcode
 
     # status indicator should be the checkmark
     expect(page).to     have_selector("i.icon-ok",     visible: true)

@@ -6,11 +6,11 @@ describe User do
       @user = User.new nil
     end
     it "should be returned when the id is nil" do
-      @user.should be_a NullUser
+      expect(@user).to be_a NullUser
     end
     it "should have the characteristics of a user" do
-      @user.admin?.should be_false
-      @user.equipment.should be_blank
+      expect(@user.admin?).to be_falsey
+      expect(@user.equipment).to be_blank
     end
   end
 end
