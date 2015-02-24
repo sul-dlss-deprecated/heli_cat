@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore capistrano
+/.capistrano
+
 # Ignore ruby version management files
 .rvmrc
 

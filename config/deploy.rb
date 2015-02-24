@@ -3,7 +3,7 @@ lock '3.3.5'
 
 set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 set :application, 'helicat'
-set :repo_url, 'git@github.com:sul-dlss/heli_cat.git'
+set :repo_url, 'https://github.com/sul-dlss/heli_cat.git'
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
