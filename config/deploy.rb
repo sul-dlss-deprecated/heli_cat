@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.1
-lock '3.2.1'
+# config valid only for Capistrano 3.3
+lock '3.3.5'
 
 set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 set :application, 'helicat'
@@ -24,7 +24,7 @@ set :deploy_to, '/home/helicat/helicat-app'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{db/production.sqlite3 config/database.yml config/dlss_ep_email config/UPS.yml config/admins.yml}
+set :linked_files, %w{db/production.sqlite3 config/database.yml config/dlss_ep_email config/UPS.yml config/admins.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log lib/course_work_xml tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

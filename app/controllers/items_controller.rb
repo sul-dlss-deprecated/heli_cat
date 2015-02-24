@@ -145,17 +145,12 @@ class ItemsController < ApplicationController
 
   def send_request_email
     if params[:send_email]
-      PurchaseRequest.new_purchase(@item, current_user, params[:purchase_option_id]).deliver
+      PurchaseRequest.new_purchase(@item, current_user, params[:purchase_option_id]).deliver_now
     end
   end
 
   def item_find_params
-    p = params.dup
-    p.delete(:controller)
-    p.delete(:action)
-    p.delete(:format)
-    p.delete(:page)
-    p
+    params.permit([:user, :department, :location, :make, :model, :category, :barcode, :serial])
   end
 
   def item_update_params

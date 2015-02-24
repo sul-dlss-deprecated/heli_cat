@@ -31,7 +31,7 @@ feature "Adding an Item to the Inventory" do
     fill_in "item_user", with: "test-user"
     fill_in "item_make", with: "Mac"
     fill_in "item_model", with: "New MacBook Pro - Retina"
-    -> {click_button("Save")}.should_not change{ActionMailer::Base.deliveries.count}
+    expect(-> {click_button("Save")}).to_not change{ActionMailer::Base.deliveries.count}
   end
   scenario "should send an email for admin users when requested" do
     login_as_admin
@@ -40,7 +40,7 @@ feature "Adding an Item to the Inventory" do
     fill_in "item_make", with: "Mac"
     fill_in "item_model", with: "New MacBook Pro - Retina"
     check "Send email?"
-    -> {click_button("Save")}.should change{ActionMailer::Base.deliveries.count}.by(1)
+    expect(-> {click_button("Save")}).to change{ActionMailer::Base.deliveries.count}.by(1)
   end
   scenario "should automatically send an email for non-admin users" do
     login_as "test-user"
@@ -48,6 +48,6 @@ feature "Adding an Item to the Inventory" do
     fill_in "item_user", with: "test-user"
     fill_in "item_make", with: "Mac"
     fill_in "item_model", with: "New MacBook Pro - Retina"
-    -> {click_button("Save")}.should change{ActionMailer::Base.deliveries.count}.by(1)
+    expect(-> {click_button("Save")}).to change{ActionMailer::Base.deliveries.count}.by(1)
   end
 end
