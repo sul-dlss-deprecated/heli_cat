@@ -3,4 +3,11 @@
   <div class="span9">
     <%= render partial: "item", locals: {item: @item}  %>
   </div>
+  <div class="row">
+    <div class="span9">
+      Actions:
+      <%= link_to_unless(@item.user.blank?, "Add user ticket", "https://acomp.stanford.edu/possum/tickets/create/?ticket_type=user&user=#{@item.user}") %> |
+      <%= link_to_unless(@item.barcode.blank?, "Add barcode ticket", "https://acomp.stanford.edu/possum/tickets/create/?ticket_type=inventory&tag_number=#{@item.barcode}") %>
+    </div>
+  </div>
 </div>
