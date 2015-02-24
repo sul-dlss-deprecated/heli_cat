@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.1
-lock '3.2.1'
+# config valid only for Capistrano 3.3
+lock '3.3.5'
 
 set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 set :application, 'helicat'
