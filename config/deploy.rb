@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.3
-lock '3.3.5'
+lock '3.4.0'
 
 set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 set :application, 'helicat'
@@ -34,16 +34,3 @@ set :linked_dirs, %w{bin log lib/course_work_xml tmp/pids tmp/cache tmp/sockets 
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-namespace :deploy do
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
-
-  after :publishing, :restart
-
-end
