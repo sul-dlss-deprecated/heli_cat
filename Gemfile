@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.5.1'
 gem 'sprockets'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -51,8 +52,8 @@ group :deployment do
   gem 'capistrano', "~> 3.0"
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-rvm'
-  gem 'lyberteam-capistrano-devel'
+  gem 'capistrano-passenger'
+  gem 'dlss-capistrano'
 end
 
 # Use ActiveModel has_secure_password
