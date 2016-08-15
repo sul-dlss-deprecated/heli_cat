@@ -17,7 +17,7 @@ feature "Adding an Item to the Inventory" do
     login_as "test-user"
     visit new_item_path
     expect(page).not_to have_selector("input#send_email[type='checkbox']")
-    expect(page).to     have_selector("input#send_email[type='hidden']")
+    expect(page).to     have_selector("input#send_email[type='hidden']", visible: false)
   end
   scenario "should present admin users with a 'Send Email?' option" do
     login_as_admin
