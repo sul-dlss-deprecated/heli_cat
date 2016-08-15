@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.3
-lock '3.4.0'
+lock '3.6.0'
 
 set :application, 'helicat'
 set :repo_url, 'https://github.com/sul-dlss/heli_cat.git'
