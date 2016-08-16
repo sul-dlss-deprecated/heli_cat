@@ -1,4 +1,4 @@
-jQuery(document).on("ready page:load", function(){
+jQuery(document).on("turbolinks:load", function(){
 	$("[data-typeahead-options]").each(function(){
 		var options = $(this).data("typeahead-options").split(",");
 		$(this).prop("autocomplete", "off").typeahead({source: options});

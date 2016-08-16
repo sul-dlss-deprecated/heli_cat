@@ -1,4 +1,4 @@
-jQuery(document).on("ready page:load", function(){
+jQuery(document).on("turbolinks:load", function(){
 	$("body").on("click", "[data-toggle='tracking']", function(){
 		var tracking_container = $("[data-tracking-container]");
 		var link = $(this);

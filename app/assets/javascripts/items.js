@@ -1,4 +1,4 @@
-jQuery(document).on("ready page:load", function(){
+jQuery(document).on("turbolinks:load", function(){
 	$("#item_department").prop("autocomplete", "off").typeahead({source: ["DPG", "Lyberteam", "PSM", "Webteam"]})
 	$("#item_make").prop("autocomplete", "off").typeahead({source: ["Dell", "Mac"]});
 	$("#item_swap_cycle").prop("autocomplete", "off").typeahead({source: ["1-year", "2-years", "3-years"]});
