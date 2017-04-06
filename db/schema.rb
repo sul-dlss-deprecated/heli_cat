@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20130708194551) do
 
-  create_table "items", force: true do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "department"
     t.string   "location"
     t.string   "user"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20130708194551) do
     t.datetime "updated_at"
   end
 
-  create_table "purchase_options", force: true do |t|
+  create_table "purchase_options", force: :cascade do |t|
     t.integer  "item_id"
     t.string   "make"
     t.string   "model"
