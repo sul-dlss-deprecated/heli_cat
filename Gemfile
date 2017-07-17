@@ -33,6 +33,9 @@ gem 'rest-client'
 
 gem 'kaminari'
 
+# Use honeybadger for exception reporting
+gem 'honeybadger'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

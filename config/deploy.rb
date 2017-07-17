@@ -20,7 +20,7 @@ set :deploy_to, '/opt/app/helicat/helicat'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/dlss_ep_email config/UPS.yml config/admins.yml config/secrets.yml}
+set :linked_files, %w{config/database.yml config/dlss_ep_email config/UPS.yml config/admins.yml config/secrets.yml config/honeybadger.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -30,3 +30,4 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+set :honeybadger_env, fetch(:stage)
